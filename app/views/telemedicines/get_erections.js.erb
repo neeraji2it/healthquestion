@@ -1,0 +1,114 @@
+$('#erections-info').html("<%= escape_javascript(render(partial: "get_erections", locals: {})).html_safe %>");
+
+var erections = <%= raw @erections %>
+var selectedOption;
+if(checkErections("When masturbating")){
+	$('#does-erection-remain-hard-until-orgasm').show();
+}else if(checkErections("When you wake up")){
+	$('#do-you-wake-up-with-an-erections').show();
+}else{
+	$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();
+}
+
+$('#backButton_29').click(function(){
+	$('#does-erection-remain-hard-until-orgasm').hide();
+	$('#do-you-get-erections').show();	
+});
+
+$('.does-erection-remain-hard-until-orgasm').click(function(){
+	if(checkErections("When masturbating")){
+		$('#does-erection-remain-hard-until-orgasm').hide();
+		if(checkErections("When you wake up")){
+			$('#do-you-wake-up-with-an-erections').show();
+		}else{
+			$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();
+		}
+	}
+});
+
+$('#backButton_30').click(function(){
+	$('#do-you-wake-up-with-an-erections').hide();
+	if(checkErections("When masturbating")){
+		$('#does-erection-remain-hard-until-orgasm').show();
+	}else{
+		$('#do-you-get-erections').show();
+	}	
+});
+
+$('.do-you-wake-up-with-an-erections').click(function(){
+	if(checkErections("When you wake up")){
+		$('#do-you-wake-up-with-an-erections').hide();		
+		$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();		
+	}
+});
+
+$('#backButton_31').click(function(){
+	$('#have-you-had-a-physical-exam-with-a-healtcare-provider').hide();
+	if(checkErections("When you wake up")){
+		$('#do-you-wake-up-with-an-erections').show();
+	}
+	else if(checkErections("When masturbating")){		
+		$('#does-erection-remain-hard-until-orgasm').show();
+	}else{
+		$('#do-you-get-erections').show();
+	}	
+});
+
+$('.have-you-had-a-physical-exam-with-a-healtcare-provider').click(function(){
+	$('#have-you-had-a-physical-exam-with-a-healtcare-provider').hide();
+	selectedOption = $(this).val();
+	if(selectedOption == 'Yes, it was normal'){
+		$('#blood-pressure').show();
+	}else if(selectedOption == 'Yes, but there were issues'){
+		$('#explain-your-exam').show();
+	}else if(selectedOption == 'No'){
+		$('#email-info2').show();
+	}	
+});
+
+// $("#email-info2-btn").click(function(){
+// 	submitData1();
+// });
+
+$('#backButton_32').click(function(){
+	$('#email-info2').hide();
+	$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();
+	$("#email-2-error").html("");
+});
+
+$('#backButton_33').click(function(){
+	$('#explain-your-exam').hide();
+	$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();
+	$("#explain-your-exam-error").html("");	
+});
+
+$('#backButton_34').click(function(){
+	$('#blood-pressure').hide();
+	if (selectedOption == 'Yes, but there were issues') {
+		$("#explain-your-exam").show();
+	}else{
+		$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();
+	}
+});
+
+$("#explain-your-exam-btn").click(function(){
+	if($("#Please_explain_your_exam_in_more_detail").val() == ""){
+		$("#explain-your-exam-error").html("Please explain your exam in more detail please.");
+	}else{
+		$("#blood-pressure").show();
+		$("#explain-your-exam").hide();
+		$("#explain-your-exam-error").html("");
+	}
+});
+
+function checkErections(data) {		
+	return ($.inArray( data, erections ) != -1);
+}
+
+// function submitData1() {		
+// 	$.ajax({
+// 	  type: "POST",
+// 	  url: "/telemedicines/telemedicines_servise_save",			 
+// 	  data: $('.telemedicine-form').serialize()		  
+// 	});
+// }

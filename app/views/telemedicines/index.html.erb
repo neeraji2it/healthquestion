@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Telemedicines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @telemedicines.each do |telemedicine| %>
+      <tr>
+        <td><%= link_to 'Show', telemedicine %></td>
+        <td><%= link_to 'Edit', edit_telemedicine_path(telemedicine) %></td>
+        <td><%= link_to 'Destroy', telemedicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Telemedicine', new_telemedicine_path %>

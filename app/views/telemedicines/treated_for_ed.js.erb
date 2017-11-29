@@ -1,0 +1,242 @@
+$('#have-you-ever-been-treated-for-ED').hide();
+// $('#backButton_18').show();
+// $('#backButton_16').show();
+$('#ED-Div').show()
+$('#ED-Div').html("<%= escape_javascript(render(partial: "treated_for_ed", locals: {})).html_safe %>");
+
+$('#backButton_14').click(function(){
+	$("#explain-other-treatment").hide();
+	$("#have-you-ever-been-treated-for-ED").show();
+});
+
+var medications = <%= raw @medications %>
+
+if(checkMedication("Viagra")){
+	$('#explain-other-treatment_viagra').show();
+}else if(checkMedication("Cialis")){
+	$('#explain-other-treatment_cialis').show();
+	$('#backButton_17').hide();
+	$('#backButton_16').show();
+}else if(checkMedication("Levitra")){
+	$('#explain-other-treatment_levitra').show();
+	$('#backButton_20').hide();
+	$('#backButton_19').hide();
+	$('#backButton_18').show();
+}
+
+$('.what-was-the-dose-of-Viagra').click(function(){
+	if(checkMedication("Viagra")){
+		$('#explain-other-treatment_viagra').hide();
+		if(checkMedication("Cialis")){
+			$('#explain-other-treatment_cialis').show();
+			$('#backButton_16').hide();
+			$('#backButton_17').show();						
+		}else if(checkMedication("Levitra")){
+			$('#explain-other-treatment_levitra').show();
+			$('#backButton_20').hide();
+			$('#backButton_19').show();
+			$('#backButton_18').hide();
+		}
+		// else if(checkMedication("Other")){
+			// $('#explain-other-treatment_other').show();
+			// $('#backButton_21').hide();
+			// $('#backButton_22').hide();
+			// $('#backButton_23').show();			
+		// }
+		else{
+			$("#did-you-experience-any-serious-side-effect").show();
+			$('#backButton_21').hide();
+			$('#backButton_22').hide();
+			$('#backButton_23').show();
+		}
+	}
+});
+
+$('#backButton_15').click(function(){
+	$("#explain-other-treatment_viagra").hide();
+	$("#have-you-ever-been-treated-for-ED").show();
+	$('#backButton_17').hide();
+	$('#backButton_16').show();
+	$('#backButton_23').hide();
+});
+
+$('.what-was-the-dose-of-Cialis').click(function(){
+	if(checkMedication("Cialis")){
+		$('#explain-other-treatment_cialis').hide();
+		if(checkMedication("Levitra")){
+			$('#explain-other-treatment_levitra').show();
+			$('#backButton_20').show();
+			$('#backButton_19').hide();
+			$('#backButton_18').hide();
+		}
+		// else if(checkMedication("Other")){
+		// 	$('#explain-other-treatment_other').show();
+		// 	$('#backButton_21').hide();
+		// 	$('#backButton_22').show();
+		// 	$('#backButton_23').hide();
+		// }
+		else{
+			$("#did-you-experience-any-serious-side-effect").show();
+			$('#backButton_21').hide();
+			$('#backButton_22').show();
+			$('#backButton_23').hide();
+		}
+	}
+});
+
+$('#backButton_16').click(function(){
+	$("#explain-other-treatment_cialis").hide();
+	$("#have-you-ever-been-treated-for-ED").show();
+	$('#backButton_20').hide();
+	$('#backButton_19').hide();
+	$('#backButton_18').hide();
+	$('#backButton_16').hide();
+	$('#backButton_22').hide();
+});
+
+$('#backButton_17').click(function(){
+	$("#explain-other-treatment_cialis").hide();
+	$("#explain-other-treatment_viagra").show();
+	$('#backButton_16').hide();
+	$('#backButton_20').hide();
+	$('#backButton_19').hide();
+	$('#backButton_18').hide();
+	$('#backButton_22').hide();
+});
+
+$('.what-was-the-dose-of-Levitra').click(function(){
+	if(checkMedication("Levitra")){
+		$('#explain-other-treatment_levitra').hide();
+		// if(checkMedication("Other")){
+		// 	$('#explain-other-treatment_other').show();
+		// 	$('#backButton_21').show();
+		// 	$('#backButton_22').hide();
+		// 	$('#backButton_23').hide();
+		// }else{
+			$("#did-you-experience-any-serious-side-effect").show();
+			$('#backButton_21').show();
+			$('#backButton_22').hide();
+			$('#backButton_23').hide();
+		// }
+	}
+});
+
+$('#backButton_18').click(function(){
+	$("#explain-other-treatment_levitra").hide();
+	$("#have-you-ever-been-treated-for-ED").show();	
+	$('#backButton_19').hide();
+	$('#backButton_18').hide();
+});
+
+$('#backButton_19').click(function(){
+	$("#explain-other-treatment_levitra").hide();
+	$("#explain-other-treatment_viagra").show();
+	$('#backButton_20').hide();	
+	$('#backButton_18').hide();
+});
+
+$('#backButton_20').click(function(){
+	$("#explain-other-treatment_levitra").hide();
+	$("#explain-other-treatment_cialis").show();	
+	$('#backButton_19').hide();
+	$('#backButton_18').hide();
+	$('#backButton_21').hide();
+});
+
+$('#backButton_21').click(function(){
+	$("#did-you-experience-any-serious-side-effect").hide();
+	$("#explain-other-treatment_levitra").show();
+	$('#backButton_23').hide();
+	$('#backButton_22').hide();
+});
+
+$('#backButton_22').click(function(){
+	$("#did-you-experience-any-serious-side-effect").hide();
+	$("#explain-other-treatment_cialis").show();	
+	$('#backButton_21').hide();
+	$('#backButton_23').hide();
+});
+
+$('#backButton_23').click(function(){
+	$("#did-you-experience-any-serious-side-effect").hide();
+	$("#explain-other-treatment_viagra").show();	
+	$('#backButton_21').hide();
+	$('#backButton_22').hide();
+});
+
+function checkMedication(data) {		
+	return ($.inArray( data, medications ) != -1);
+}
+
+// $('.did-you-experience-any-serious-side-effect').click(function(){
+// 	$('#did-you-experience-any-serious-side-effect').hide();
+// 	if(checkMedication("Other")){
+// 		$('#explain-other-treatment_other').show();
+// 	}else{
+// 		$('#stisfying-enough-for-sex').show();
+// 	}
+// });
+
+$('.did-you-experience-any-serious-side-effect').click(function(){
+	$('#did-you-experience-any-serious-side-effect').hide();
+	if($(this).val() == 'Yes') {
+		$('#explain-the-side-effects').show();
+	}else if(checkMedication("Other")){
+		$('#explain-other-treatment_other').show();
+	}else{
+		$('#stisfying-enough-for-sex').show();
+	}
+});
+
+$('#backButton_60').click(function(){
+	$('#explain-the-side-effects').hide();
+	$('#did-you-experience-any-serious-side-effect').show();
+	$("#explain-the-side-effects-error").html("");
+});
+
+$('#backButton_24').click(function(){
+	$('#explain-other-treatment_other').hide();
+	if($("input[name='Did you experience any serious side effect that made you stop?']:checked").val() == 'Yes'){
+		$('#explain-the-side-effects').show();
+	}else{
+		$("#did-you-experience-any-serious-side-effect").show();
+	}
+	$("#explain-other-treatment-error").html("");
+});
+
+$('#explain-the-side-effects-btn').click(function(){
+	if($("#Please_explain_the_side_effects").val() == ""){
+		$("#explain-the-side-effects-error").html("Please explain the side effects.");
+	}else{
+		$('#explain-the-side-effects').hide();
+		if(checkMedication("Other")){
+			$('#explain-other-treatment_other').show();
+		}else{
+			$('#stisfying-enough-for-sex').show();
+		}
+		$("#explain-the-side-effects-error").html("");
+	}
+});
+
+$('#backButton_25').click(function(){
+	$('#stisfying-enough-for-sex').hide();
+	if(checkMedication("Other")){
+		$('#explain-other-treatment_other').show();
+		$("#explain-other-treatment").show();
+	}else if($("input[name='Did you experience any serious side effect that made you stop?']:checked").val() == 'Yes'){
+		$('#explain-the-side-effects').show();	
+	}else if(checkMedication("Viagra") || checkMedication("Cialis") || checkMedication("Levitra")){		
+		$("#did-you-experience-any-serious-side-effect").show();
+	}
+});
+
+$("#explain-other-treatment-btn").click(function(){
+	if($("#Explain_other_treatment").val() == ""){
+		$("#explain-other-treatment-error").html("Please explain the other treatment.");
+	}else{
+		$('#stisfying-enough-for-sex').show();
+		$('#explain-other-treatment').hide();
+		$('#explain-other-treatment_other').hide();
+		$("#explain-other-treatment-error").html("");
+	}
+});

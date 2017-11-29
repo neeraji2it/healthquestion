@@ -1,0 +1,32 @@
+$('#dosage-preference-info').hide();
+$('#dosage-preference-list-info').show();
+$('#dosage-preference-list-info').html("<%= escape_javascript(render(partial: "dosage_preference_list", locals: {})).html_safe %>");
+
+$('#backButton_10').click(function(){	
+	$('#dosage-preference-list-info').hide();
+	$('#dosage-preference-info').show();
+	$("input[name='What dose of drug?']:checked").prop('checked', false);
+	$("input[name='Drug Strength']").val($("#drugStrength").text());
+});
+
+$('.drug-preference-list').click(function(){		
+	$('#dosage-preference-list-info').hide();
+	$('#how-often-do-you-want-your-medication-to-be-shipped').show();
+	$('#backButton_12').hide();
+	$('#backButton_11').show();
+	var drugPrice = $("input[name='What dose of drug?']:checked").val();
+	var perMonthQuntity = $("input[name='How many times do you anticipate using the medication for sexual activity, if prescribed?']:checked").val();	
+	var totalPricePerMonth = (drugPrice * perMonthQuntity)
+	var totalPricePerMonthWD = 	totalPricePerMonth	
+	if(totalPricePerMonth > <%= DESCOUNT_THRESHOLD %>){
+		totalPricePerMonth = totalPricePerMonth - 5;
+		$('#how-often-do-you-want-your-medication-to-be-shipped-btn').text("SAVE $60 A YAER")		
+	}else{
+		$('#how-often-do-you-want-your-medication-to-be-shipped-btn').text("CONFIRM 3-MONTH SHIPPING")
+	}
+	var totalPrice3Month = totalPricePerMonth * 3;
+	$("#drug-month-price").text(totalPricePerMonth);
+	$("#drug-3-month-price").text(totalPrice3Month);
+	$("#drug-month-price-wd").text(totalPricePerMonthWD);
+	$("input[name='Drug Strength']").val(DRUG_PREFERENCE["<%= @drug_name %>"][drugPrice]);	
+});

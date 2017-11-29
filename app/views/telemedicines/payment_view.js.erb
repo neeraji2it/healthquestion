@@ -1,0 +1,107 @@
+$('#user-media-info').hide();
+$('#paymentDiv').show();
+$('#paymentDiv').html("<%= escape_javascript(render(partial: "payment_view", locals: {})).html_safe %>");
+
+$('#backButton_62').click(function(){
+	$('#paymentDiv').hide();
+	$('#user-media-info').show();
+});
+
+var drugName = "<%= @drug_name %>"
+var perMonthQuntity = "<%= @per_nonth_quntity %>"
+var drugShippedType = "<%= @drug_shipped_type %>"
+var totalPrice = parseInt("<%= @total_price %>")
+var drugStrength = "<%= @drug_strength %>"
+
+if(totalPrice > 50){
+	totalPayableAmount =totalPrice - 50
+	discountAmount = 50
+}else if(totalPrice == 0){
+	totalPayableAmount = 0
+	discountAmount = 0
+	totalPrice = 0
+}else{
+	discountAmount = parseInt(totalPrice / 3)
+	totalPayableAmount = totalPrice - discountAmount
+}
+if(drugName){
+	$('#user-drug-preference').text(drugName);
+}else{
+	$('#user-drug-preference').text("No drug preference");
+}
+$('#drug-quantity-per-month').text(perMonthQuntity);
+$('#drug-shipped-type').text(drugShippedType);
+$('#total-amount').text(totalPrice);
+$('#total-payable-amount').text(totalPayableAmount);
+$('#discount-amount').text(discountAmount);
+$('#user-drug-strength').text(drugStrength);
+
+$("input[name='payment[total_amount]']").val(totalPrice);
+$("input[name='payment[total_discount]']").val(discountAmount);
+$("input[name='payment[final_amount]']").val((totalPayableAmount + 15));
+
+$('#edit-drug-info-btn').click(function(){
+	$('#review-drug-info').hide();
+	$('#edit-drug-info').show();
+});
+
+$('#done-drug-info-btn').click(function(){
+	$('#review-drug-info').show();
+	$('#edit-drug-info').hide();
+	var current_drugName = $("#payment_drug_name option:selected").val();	
+	var current_perMonthQuntity = parseFloat($("#payment_per_month_quantity option:selected").val());
+	var current_drugShippedType = $("#payment_shipped_type option:selected").val();	
+	var current_drugStrength = $("#payment_drug_strength option:selected").val();	
+	var current_totalPrice;
+	var current_drugPrice = parseFloat(DRUG_PREFERENCE_REVERSE[current_drugName][current_drugStrength]);
+
+	var current_totalPricePerMonth = (current_drugPrice * current_perMonthQuntity)	
+	if(current_totalPricePerMonth > <%= DESCOUNT_THRESHOLD %>){
+		current_totalPricePerMonth = current_totalPricePerMonth - 5;
+	}
+	if(current_drugShippedType == "Shipped every 3 months"){
+		current_totalPrice = current_totalPricePerMonth * 3;
+	}else{
+		current_totalPrice = current_totalPricePerMonth;
+	}
+
+	if(current_totalPrice > 50){
+		current_totalPayableAmount =current_totalPrice - 50
+		current_discountAmount = 50
+	}else if(current_totalPrice == 0){
+		current_totalPayableAmount = 0
+		current_discountAmount = 0
+		current_totalPrice = 0
+	}else{
+		current_discountAmount = parseInt(current_totalPrice / 3)
+		current_totalPayableAmount = current_totalPrice - current_discountAmount
+	}	
+	$('#user-drug-preference').html(current_drugName);
+	$('#drug-quantity-per-month').html(current_perMonthQuntity);	
+	$('#drug-shipped-type').html(current_drugShippedType);	
+	$('#total-amount').html(current_totalPrice);
+	$('#total-payable-amount').html(current_totalPayableAmount);
+	$('#discount-amount').html(current_discountAmount);
+	$('#user-drug-strength').html(current_drugStrength);
+
+	$("#payment_total_amount").val(current_totalPrice);
+	$("#payment_total_discount").val(current_discountAmount);
+	$("#payment_final_amount").val((current_totalPayableAmount + 15));
+});
+
+$("#payment_drug_name").change(function(){
+  var drugName = $(this).children(":selected").val();
+  var params = 'drug_name=' + drugName;
+  $.ajax({
+    url: "/telemedicines/update_drug",
+    data: params,
+    success:function (data) {    
+    	var select_tag = '<select name="payment[drug_strength]" id="payment_drug_strength">'
+  		$.each(data, function( index, value ){
+  			select_tag = select_tag.concat('<option value='+ value +'>' + value + '</option>')
+  		});
+  		select_tag = select_tag.concat('</select>')
+    	$("#medication-strength").html(select_tag);
+    }
+  })
+});
