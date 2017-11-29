@@ -58,6 +58,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'foundation-rails'
 gem "carrierwave"
 gem 'bootstrap-datepicker-rails'
+gem "foundation-rails", "= 5.5.2.1"
