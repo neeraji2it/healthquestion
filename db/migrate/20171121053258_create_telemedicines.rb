@@ -6,7 +6,7 @@ class CreateTelemedicines < ActiveRecord::Migration[5.1]
     	t.integer		:zip_code
     	t.string		:gender
     	t.date			:dob
-      t.string    :have_you_had_a_physical_exam_with_a_healthcare_provider_in_the_past_five_years
+      t.string    :have_you_had_a_physical_exam_with_a_healthcare_provider
       t.string    :have_you_know_your_blood_pressure
       t.boolean   :payment_success, default: false
       t.string    :profile_image
