@@ -38,14 +38,14 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   # Use sqlite3 as the database for Active Record
-  # gem 'sqlite3'
+  gem 'sqlite3'
 end
 
-# group :production do
-  # gem 'mysql2', '0.3.18'
-  gem 'pg', '0.20.0'
+group :production do
+  gem 'mysql2', '0.3.18'
+   gem 'pg', '0.20.0'
   gem 'rails_12factor'
-# end
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
