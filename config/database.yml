@@ -21,6 +21,6 @@ test:
   <<: *default
   database: health_question
 
-production:
-  <<: *default
-  database: health_question
+# production:
+#   <<: *default
+#   database: health_question
