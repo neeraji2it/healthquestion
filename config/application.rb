@@ -17,5 +17,6 @@ module HealthQuestion
     config.time_zone = 'Eastern Time (US & Canada)'
  		config.active_record.default_timezone = :local
  		config.autoload_paths += Dir["#{config.root}/app/services/**/"]
+ 		config.assets.initialize_on_precompile = false
   end
 end
