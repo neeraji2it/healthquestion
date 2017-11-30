@@ -1,5 +1,6 @@
 class TelemedicinesController < ApplicationController
   before_action :set_telemedicine, only: [:show, :edit, :update, :destroy]
+  before_action :clean_select_multiple_params, only: [:telemedicines_servise_save]
 
   def index
     @telemedicines = Telemedicine.all
@@ -62,6 +63,17 @@ class TelemedicinesController < ApplicationController
     @data = ApiServices.check_valid_zip(params[:user][:zip_code])
     respond_to do |format|
       format.json { render :json => @data["results"].present? }
+    end
+  end
+
+  private
+
+  def clean_select_multiple_params hash = params
+    hash.each do |k, v|
+      case v
+      when Array then v.reject!(&:blank?)
+      when Hash then clean_select_multiple_params(v)
+      end
     end
   end
 end

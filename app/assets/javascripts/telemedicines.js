@@ -919,6 +919,23 @@ $(document).ready(function(){
   	return "Changes that you made may not be saved.";
 	};
 
+	function readURL(input, divId) {
+	  if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	      $('#'+divId).html('<img id="blah" src="' + e.target.result +'" alt="your image" height="144px" width="180px" />');
+	    }
+	    reader.readAsDataURL(input.files[0]);
+	  }
+	}
+
+	$("#profile_image").change(function(){
+	    readURL(this, "image_1");
+	});
+	$("#photo_id_image").change(function(){
+	    readURL(this, "image_2");
+	});
+
 	// var backDiv;  
  //  var allIds = [ "telemedicineLaw-btn", "zipcode-btn", "dob-btn", "backButton", "email-btn", "gender", "anticipate-times", "gender-female-btn", ]  
 	// $(document).click(function(e){

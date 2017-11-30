@@ -482,9 +482,11 @@
 			<h3>Please take a photo of yourself and ID.</h3>
 			<p>Telemedicine laws require a physician to know who they are treating. This is why we ask for a photo of you and your ID. These images are securely stored and only seen by your physician and the XYZ Care Team.</p>			
 			<%= label_tag "UPLOAD PROFILE IMAGE"%>
-			<%= file_field_tag "profile_image" %>			
+			<%= file_field_tag "profile_image" %>
+			<div id="image_1"></div>
 			<%= label_tag "UPLOAD PHOTO ID"%>
 			<%= file_field_tag "photo_id_image"%>
+			<div id="image_2"></div>
 			<a href="javascript:void(0)" class="button round" id="user-media-info-btn">REVIEW AND ADD PAYMENT</a>
 		</div>
 
