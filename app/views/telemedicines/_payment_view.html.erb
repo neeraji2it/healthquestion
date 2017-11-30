@@ -24,10 +24,13 @@
 <%= hidden_field_tag "payment[total_discount]"%>
 <%= hidden_field_tag "payment[online_visit_charge]", 15%>
 <%= hidden_field_tag "payment[final_amount]"%>
-<h5>IF PRESCRIBED:</h5>
-<p>Medication cost (monthly): $<span id="total-amount"></span></p>
-<p>1st Shipment Beta Offer:  <span id="discount-amount"></span></p>
-<p>1st Shipment Total:  <span id="total-payable-amount"></span></p>
+<%= hidden_field_tag "payment[is_selected_different_pharmacy]"%>
+<% unless @different_pharmacy == "true"%>
+	<h5>IF PRESCRIBED:</h5>
+	<p>Medication cost (monthly): $<span id="total-amount"></span></p>
+	<p>1st Shipment Beta Offer:  <span id="discount-amount"></span></p>
+	<p>1st Shipment Total:  <span id="total-payable-amount"></span></p>
+<% end %>
 <h5>DUE TODAY:</h5>
 <p>Online visit (Read refund policy):  <span>$15</span></p>
 <h5>ADD PAYMENT DETAILS</h5>

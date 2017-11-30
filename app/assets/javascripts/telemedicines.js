@@ -868,7 +868,7 @@ $(document).ready(function(){
 			var totalPrice =  parseFloat($("input[name='Total Billed']").val());
 			$.ajax({		  
 			  url: "/telemedicines/payment_view",			 
-			  data: {"per_nonth_quntity": perMonthQuntity, "drug_name": drugName, "drug_shipped_type": drugShippedType, "drug_strength": drugStrength, "total_price": totalPrice}	  
+			  data: {"per_nonth_quntity": perMonthQuntity, "drug_name": drugName, "drug_shipped_type": drugShippedType, "drug_strength": drugStrength, "total_price": totalPrice, "different_pharmacy": selectDifferentPharmacy}	  
 			});
 			$("#user-media-info-error").html("")
 		}
