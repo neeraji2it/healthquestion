@@ -1,54 +1,114 @@
 <!-- ["Viagra", "Cialis", "Levitra", "Other"] -->
 <% if @medications.include? "Viagra" %>
-<div id="explain-other-treatment_viagra" style="display: none;">
-	<a href="javascript:void(0)" class="button tiny" id="backButton_15" style="float: left;">Back</a><br/><br/><br/>
-	<h3>What was the dose of Viagra?</h3><br>
-	<% DRUG_PREFERENCE["Viagra"].each do |strength, price| %>
-		<input type="radio" name="What was the dose of Viagra?" value="<%= strength %>" class="what-was-the-dose-of-Viagra"> <%= strength %><br>
-	<% end %>
-</div>
+	<div class="row hide" id="explain-other-treatment_viagra">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_15">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>What was the dose of Viagra?</h5><br/>
+          <% DRUG_PREFERENCE["Viagra"].each do |strength, price| %>
+						<label for="what-was-the-dose-of-Viagra"><input type="radio" name="What was the dose of Viagra?" value="<%= strength %>" class="what-was-the-dose-of-Viagra"><strong> <%= strength %></strong></label><br>
+					<% end %>
+	      </div>
+      </div>
+	  </div>
+	</div>
 <% end %>
 
 <% if @medications.include? "Cialis" %>
-	<div id="explain-other-treatment_cialis" style="display: none;">
-		<a href="javascript:void(0)" class="button tiny" id="backButton_16" style="float: left;">Back</a>
-		<a href="javascript:void(0)" class="button tiny" id="backButton_17" style="float: left;">Back</a>
-		<br/><br/><br/>
-		<h3>What was the dose of Cialis?</h3><br>
-		<% DRUG_PREFERENCE["Cialis"].each do |strength, price| %>
-			<input type="radio" name="What was the dose of Cialis?" value="<%= strength %>" class="what-was-the-dose-of-Cialis"> <%= strength %><br>
-		<% end %>
+	<div class="row hide" id="explain-other-treatment_cialis">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_16">❮</a>
+        <a href="javascript:void(0)" class="left" id="backButton_17">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>What was the dose of Cialis?</h5><br/>
+          <% DRUG_PREFERENCE["Cialis"].each do |strength, price| %>
+						<label for="what-was-the-dose-of-Cialis"><input type="radio" name="What was the dose of Cialis?" value="<%= strength %>" class="what-was-the-dose-of-Cialis"><strong> <%= strength %></strong></label><br>
+					<% end %>
+	      </div>
+      </div>
+	  </div>
 	</div>
 <% end %>
 
 <% if @medications.include? "Levitra" %>
-	<div id="explain-other-treatment_levitra" style="display: none;">
-		<a href="javascript:void(0)" class="button tiny" id="backButton_18" style="float: left;">Back</a>
-		<a href="javascript:void(0)" class="button tiny" id="backButton_19" style="float: left;">Back</a>
-		<a href="javascript:void(0)" class="button tiny" id="backButton_20" style="float: left;">Back</a>
-		<br/><br/><br/>
-		<h3>What was the dose of Levitra?</h3><br>
-		<% DRUG_PREFERENCE["Levitra"].each do |strength, price| %>
-			<input type="radio" name="What was the dose of Levitra?" value="<%= strength %>" class="what-was-the-dose-of-Levitra"> <%= strength %><br>
-		<% end %>
-	</div>
+	<div class="row hide" id="explain-other-treatment_levitra">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_18">❮</a>
+        <a href="javascript:void(0)" class="left" id="backButton_19">❮</a>
+        <a href="javascript:void(0)" class="left" id="backButton_20">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>What was the dose of Levitra?</h5><br/>
+          <% DRUG_PREFERENCE["Levitra"].each do |strength, price| %>
+						<label for="what-was-the-dose-of-Levitra"><input type="radio" name="What was the dose of Levitra?" value="<%= strength %>" class="what-was-the-dose-of-Levitra"><strong> <%= strength %></strong></label><br>
+					<% end %>
+	      </div>
+      </div>
+	  </div>
+	</div>	
 <% end %>
 
 <% if (@medications.include? "Other") && @medications.count == 1 %>
-	<div id="explain-other-treatment">
-		<a href="javascript:void(0)" class="button tiny" id="backButton_14" style="float: left;">Back</a><br/><br/><br/>
-		<div id="explain-other-treatment-error"></div>
-		<h3>Please explain the other treatment?</h3><br>
-			<%= text_area_tag "Explain other treatment" %>
-		<a href="javascript:void(0)" class="button round" id="explain-other-treatment-btn">CONFIRM</a>
+	<div class="row" id="explain-other-treatment">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_14">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="explain-other-treatment-error"></label>
+          <h5>Please explain the other treatment?</h5><br/>         
+			    <%= text_area_tag 'Explain other treatment', nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="explain-other-treatment-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
 	</div>
 <% elsif @medications.include? "Other"%>
-	<div id="explain-other-treatment_other" style="display: none;">
-		<a href="javascript:void(0)" class="button tiny" id="backButton_24" style="float: left;">Back</a>		
-		<br/><br/><br/>
-		<div id="explain-other-treatment-error"></div>
-		<h3>Please explain the other treatment?</h3><br>
-			<%= text_area_tag "Explain other treatment" %>
-		<a href="javascript:void(0)" class="button round" id="explain-other-treatment-btn">CONFIRM</a>
+	<div class="row hide" id="explain-other-treatment_other">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_24">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="explain-other-treatment-error"></label>
+          <h5>Please explain the other treatment?</h5><br/>         
+			    <%= text_area_tag 'Explain other treatment', nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    	
+	    		<a href="javascript:void(0)" class="button expand round" id="explain-other-treatment-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
 	</div>
 <% end %>

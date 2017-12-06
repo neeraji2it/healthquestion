@@ -1,0 +1,42 @@
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+input[type="text"][readonly]{
+	background-color: white;
+}
+#no-preference-btn{
+	color: #008CBA;
+}
+.panel {    
+  background: white;    
+}
+
+label {   
+    padding-left: 23px;
+    text-indent: -23px;
+}
+input[type='checkbox'] {
+    width: 19px;
+    height: 17px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -3px;
+    *overflow: hidden;
+}
+
+input[type='radio'] {
+    width: 19px;
+    height: 17px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -3px;
+    *overflow: hidden;
+}
+.th{
+    height: 180px;
+}

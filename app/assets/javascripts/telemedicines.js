@@ -54,8 +54,14 @@ $(document).ready(function(){
     });
     return result;
   }
-
-  $('.datepicker').datepicker({"todayHighlight": true, "format": "mm/dd/yyyy", "weekStart": 1, "autoclose": true})
+	$(function(){
+	  $('.datepicker1').fdatepicker({
+			format: 'mm/dd/yyyy',
+			disableDblClickSelection: true,
+			leftArrow:'<<',
+			rightArrow:'>>'
+	  })
+	});
 
 	$('#backButton_1').click(function(){		
 		$('#telemedicinelaw-info').show();
@@ -428,8 +434,16 @@ $(document).ready(function(){
 	$('.describes-your-libido').click(function(){
 		$('#describes-your-libido').hide();
 		$('#select-ED-conditions').show();
-		alert("Great, thank you. We need to know more about your medical history to ensure ED medications are safe for you. Some conditions are complex and are better treated by a physician in person.")
+		$("#modal1").modal({		  
+		  fadeDuration: 1000,
+	  	fadeDelay: 0.50,
+	  	escapeClose: false,
+	  	clickClose: false
+		});		
 	});
+	// $("#modal1-btn").click(function(){
+	// 	$("#modal1").hide();
+	// });
 
 	$('#backButton_40').click(function(){
 		$('#select-ED-conditions').hide();
@@ -681,7 +695,12 @@ $(document).ready(function(){
 		$('#allergies-info').hide();
 		if($(this).val() == 'No, I do not have any allergies to food, dyes, or medication'){
 			$('#have-you-been-troubled-info').show();
-			alert("The next set of questions are specific to your ED symptoms and general mood.");
+			$("#modal2").modal({		  
+			  fadeDuration: 1000,
+		  	fadeDelay: 0.50,
+		  	escapeClose: false,
+		  	clickClose: false
+			});
 		}else{
 			whichAllergies = true;
 			$('#allergic-details').show();
@@ -712,7 +731,10 @@ $(document).ready(function(){
 			$('#allergic-details').hide();
 			$('#have-you-been-troubled-info').show();
 			$('#allergic-details-error').html("");
-			alert("The next set of questions are specific to your ED symptoms and general mood.");
+			$("#modal2").modal({		  
+			  fadeDuration: 1000,
+		  	fadeDelay: 0.50
+			});
 		}
 	});
 	
@@ -805,11 +827,24 @@ $(document).ready(function(){
 
 	var selectDifferentPharmacy = false;
 	$('#select-different-pharmacy-btn').click(function(){
-		if (confirm("If you pick a pharmacy outside of the Roman Pharmacy Network, and qualify for a prescription, we will not be able to guarantee the price of the medication and provide free monthly delivery. Are you sure you want to continue?")) {
-		  $('#confirm-pharmacy').hide();
-			$('#other-pharmacy-details').show();
-			selectDifferentPharmacy = true;
-		}
+		$("#modal3").modal({		  
+		  fadeDuration: 1000,
+	  	fadeDelay: 0.50,
+	  	escapeClose: false,
+	  	clickClose: false  		
+		});
+		// if (confirm("If you pick a pharmacy outside of the Roman Pharmacy Network, and qualify for a prescription, we will not be able to guarantee the price of the medication and provide free monthly delivery. Are you sure you want to continue?")) {
+		//   $('#confirm-pharmacy').hide();
+		// 	$('#other-pharmacy-details').show();
+		// 	selectDifferentPharmacy = true;
+		// }
+	});	
+
+	$("#modal3-btn").click(function(){
+		$.modal.close();
+		$('#confirm-pharmacy').hide();
+		$('#other-pharmacy-details').show();
+		selectDifferentPharmacy = true;
 	});
 
 	$('#other-pharmacy-details-btn').click(function(){
@@ -859,7 +894,7 @@ $(document).ready(function(){
 
 	$('#user-media-info-btn').click(function(){
 		if($("#profile_image").val() == "" || $("#photo_id_image").val() == ""){
-			$("#user-media-info-error").html("Please upload both image.")
+			$("#user-media-info-error").html("Please upload both images.")
 		}else{	
 			var perMonthQuntity = $("input[name='How many times do you anticipate using the medication for sexual activity, if prescribed?']:checked").val();
 			var drugName = $("input[name='Do you have a drug preference?']:checked").val();
@@ -923,7 +958,7 @@ $(document).ready(function(){
 	  if (input.files && input.files[0]) {
 	    var reader = new FileReader();
 	    reader.onload = function (e) {
-	      $('#'+divId).html('<img id="blah" src="' + e.target.result +'" alt="your image" height="144px" width="180px" />');
+	      $('#'+divId).html('<img class="th" src="' + e.target.result +'" alt="your image" height="144px" width="180px" />');
 	    }
 	    reader.readAsDataURL(input.files[0]);
 	  }

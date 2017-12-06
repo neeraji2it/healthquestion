@@ -1,509 +1,1214 @@
-<div align="center">
-	<form class="telemedicine-form">
-		<div id="telemedicinelaw-info">		
-			<p>Hi there. I’m the automated telehealth assistant that will help you fill out the medical questions.</p>
-			<p>All your questions are transmitted securely and will ONLY be reviewed by a U.S. licensed physician.</p>
-			<br/>
-			<div class="field">
-				<%#= hidden_field_tag "telemedicine_law", 0 %>
-				<%= label_tag "I consent to telehealth" %>
-				<%= check_box_tag "telemedicine_law" %>
+<form class="telemedicine-form">
+	<!-- telemedicinelaw-info -->
+	<div align="center">
+		<div class="row" id="telemedicinelaw-info">
+		  <div class="large-10 large-offset-1 columns">
+		  	<div class="row">
+		      <div class="large-12 columns">
+		        <img src="/assets/f3.png" width="20%">
+		      </div>
+		    </div><br/>
+		    <div class="row">
+		      <div class="large-8 large-offset-2 columns">
+		        <div class="callout panel text-left">
+		          <p><strong>Hi there. I’m the automated telehealth assistant that will help you fill out the medical questions.</strong></p>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="row">
+		      <div class="large-8 large-offset-2 columns">
+		        <div class="callout panel text-left">
+		          <p><strong>All your questions are transmitted securely and will ONLY be reviewed by a U.S. licensed physician.</strong></p>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="row">
+		      <div class="large-8 large-offset-2 columns">
+		        <label for="telemedicine_law"><input id="telemedicine_law" type="checkbox" name="telemedicine_law"> I consent to telehealth</label>
+		      </div>
+		    </div><br/>
+		    <div class="row">
+	        <div class="large-8 large-offset-2 columns">
+			    	<a href="javascript:void(0)" class="button expand round disabled" id="telemedicineLaw-btn">GET STARTED</a>
+			    </div>
+			  </div>
+		  </div>
+		</div>
+	</div>
+	<!-- zipcode-info  -->
+	<div class="row hide" id="zipcode-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <!-- <a href="javascript:void(0)" class="button tiny left" id="backButton_1">❮</a> -->
+        <a href="javascript:void(0)" class="left" id="backButton_1">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>What's your zip code?</h5><br/>
+          <%= text_field_tag 'zip_code', nil, placeholder: "Zip Code", maxlength: 5 %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class="button expand round" id="zipcode-btn">Continue</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- dob-info  -->
+	<div class="row hide" id="dob-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_2">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="dob-error"></label>
+          <h5>What's your birthdate?</h5><br/>
+          <%= text_field_tag 'dob', nil, placeholder: "mm/dd/yyyy", readonly: true, class: "span2 datepicker1" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class="button expand round" id="dob-btn">Continue</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- email-info  -->
+	<div class="row hide" id="email-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_3">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="email-error"></label>
+          <h5>What's your e-mail?</h5><br/>
+          <%= email_field_tag 'email', nil, placeholder: "Email" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class="button expand round" id="email-btn">Continue</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- gender-info  -->
+	<div class="row hide" id="gender-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_4">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>What's your gender?</h5><br/>
+	        <label for="genderMale"><input type="radio" name="gender" value="Male" id="gender" class="gender"><strong> Male</strong></label><br/>
+	        <label for="genderFemale"><input type="radio" name="gender" value="Female" id="gender" class="gender"><strong> Female</strong></label>
+	      </div>
+      </div>	    
+	  </div>
+	</div>
+	<!-- anticipate-times-info  -->
+	<div class="row hide" id="anticipate-times-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_5">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>How many times do you anticipate using the medication for sexual activity, if prescribed?</h5>
+          <p>The Roman Pharmacy Network can ship individual single packets for each use (i.e., dose).</p><br/>
+	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="4" class="anticipate-times"><strong> 4 uses per month</strong></label><br/>
+	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="6" class="anticipate-times"><strong> 6 uses per month</strong></label><br/>
+	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="8" class="anticipate-times"><strong> 8 uses per month</strong></label><br/>
+	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="10" class="anticipate-times"><strong> 10 uses per month</strong></label><br/>
+	      </div>
+      </div>	    
+	  </div>
+	</div>
+	<!-- gender-female-info  -->
+	<div class="row hide" id="gender-female-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_6">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="female-email-error"></label>
+          <h5>How can we help?</h5>
+          <p>Unfortunately our ED treatment is currently only available to men. However, we would love to know if there’s anything we can do to help. Please leave your email and comments below.</p><br/>
+         <%= text_field_tag 'female[email_1]', nil, placeholder: "Email" %>
+			   <%= text_area_tag 'female[comments]', nil, placeholder: "Comments", rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class="button expand round" id="gender-female-btn">Next</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- gender-female-final  -->
+	<div class="row hide" id="gender-female-final">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_7">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="female-email-error"></label>
+          <h5>Thank you!</h5>
+          <p>We will review your message and get back to you as soon as possible.</p><br/>     
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<img src="/assets/checkmark_green.png" width="75%">
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- drug-preference-info  -->
+	<div class="row hide" id="drug-preference-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_8">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Do you have a drug preference?</h5>
+          <p>Your preference will be shared with a physician, who will use their medical judgement to determine the best treatment plan. Their decision may or may not match your preference. Prices listed are from The Roman Pharmacy Network for the recommended starting dose for a healthy patient.</p><br/>         
+	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Sildenafil" drug-price="6" class="drug-preference"><strong> Sildenafil</strong>( Sildenafil ) <strong> as low as $6 per dose</strong></label><br/>	       
+	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Viagra" drug-price="63" class="drug-preference"><strong> Sildenafil</strong>( Viagra )<strong> as low as $63 per dose</strong></label><br/>	       
+	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Cialis" drug-price="62" class="drug-preference"><strong> Tadalafil</strong>( Cialis )<strong> as low as $62 per dose</strong></label><br/>	        
+	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Levitra" drug-price="52" class="drug-preference"><strong> Vardenafil</strong>( Levitra )<strong> as low as $52 per dose</strong></label><br/>
+	        <div id="no-preference-div"></div>			
+					<u><b><a href="javascript:void(0)" id="no-preference-btn">Please tell the physician I don’t have a preference.</a></b></u>
+	      </div>
+      </div>	    
+	  </div>
+	</div>
+	<!-- Do you have a dosage preference for xyz -->
+	<%= render partial: 'dosage_preference'%>
+
+	<!--  how-often-do-you-want-your-medication-to-be-shipped -->
+	<div class="row hide" id="how-often-do-you-want-your-medication-to-be-shipped">
+	  <div class="row">
+	    <div class="large-12 columns">
+	      <a href="javascript:void(0)" class="left" id="backButton_11">❮</a>
+	      <a href="javascript:void(0)" class="left" id="backButton_12">❮</a>
+	    </div>
+	  </div>
+	  <hr/>
+	  <div class="large-10 large-offset-1 columns">
+	    <div class="row">
+	      <div class="large-8 large-offset-2 columns">        
+	        <h5>How often do you want your medication to be shipped?</h5>
+	        <p>Would you like to save money by receiving a 3 months supply every 3 months or you would rather receive 1 box every month?</p><br>        
+	      </div>
+	    </div>  
+		  <div class="row" align="center">
+		    <div class="large-8 large-offset-2 columns">
+		      <div class="panel">
+		        <h5>SHIP EVERY 3 MONTHS</h5>
+		        <h2>$<span id="drug-month-price"></span>/mo</h2>
+						<p>Billed $<span id="drug-3-month-price"></span> every 3 months. Cancel anytime.</p>
+						<div class="row">		    	
+			    		<a href="javascript:void(0)" class="button expand round" id="how-often-do-you-want-your-medication-to-be-shipped-btn"></a>
+				    </div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="row" align="center">
+		    <div class="large-8 large-offset-2 columns">
+		      <div class="panel">
+		        <h5>SHIP EVERY MONTH</h5>
+						<h2>$<span id="drug-month-price-wd"></span>/mo</h2>
+						<p>Billed monthly. Cancel anytime.</p>
+						<%= hidden_field_tag "Shipped Type"%>
+						<%= hidden_field_tag "Total Billed"%>
+						<%= hidden_field_tag "Drug Strength"%>
+						<div class="row">		    		
+			    		<a href="javascript:void(0)" class="button expand secondary round" id="how-often-do-you-want-your-medication-to-be-shipped-month-btn">PAY REGULAR PRICE</a>			  
+				    </div>
+		      </div>
+		    </div>
+		  </div>
+		</div> 
+	</div>
+	<!--  how-often-do-you-want-your-medication-to-be-shipped-no-preference -->
+	<div class="row hide" id="how-often-do-you-want-your-medication-to-be-shipped-no-preference">
+	  <div class="row">
+	    <div class="large-12 columns">
+	      <a href="javascript:void(0)" class="left" id="backButton-no-preference">❮</a>	      
+	    </div>
+	  </div>
+	  <hr/>
+	  <div class="large-10 large-offset-1 columns">
+	    <div class="row">
+	      <div class="large-8 large-offset-2 columns">        
+	        <h5>How often do you want your medication to be shipped?</h5>
+	        <p>Would you like to save money by receiving a 3 months supply every 3 months or you would rather receive 1 box every month?</p><br>        
+	      </div>
+	    </div>  
+		  <div class="row" align="center">
+		    <div class="large-8 large-offset-2 columns">
+		      <div class="panel">
+		        <h5>SHIP EVERY 3 MONTHS</h5>
+		        <h2>SAVE $5/mo</h2>
+						<p>Billed every 3 months. Cancel anytime.</p>
+						<div class="row">			    		
+			    		<a href="javascript:void(0)" class="button expand round" id="how-often-do-you-want-your-medication-to-be-shipped-no-preference-btn">SAVE $60 A YEAR</a>
+				    </div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="row" align="center">
+		    <div class="large-8 large-offset-2 columns">
+		      <div class="panel">
+		        <h5>SHIP EVERY MONTH</h5>
+						<p>Billed monthly. Cancel anytime.</p>						
+						<div class="row">		    		
+			    		<a href="javascript:void(0)" class="button expand secondary round" id="how-often-do-you-want-your-medication-to-be-shipped-month-no-preference-btn">PAY REGULAR PRICE</a>			  
+				    </div>
+		      </div>
+		    </div>
+		  </div>
+		</div> 
+	</div>
+	<!-- have-you-ever-been-treated-for-ED  -->
+	<div class="row hide" id="have-you-ever-been-treated-for-ED">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_13">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Have you ever been treated for ED? This includes medications prescribed or purchased over the counter, and any other treatments.</h5><br/>
+          <%= hidden_field_tag "Have you ever been treated for ED?[]", nil %>
+          <label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Viagra"><strong> Viagra</strong></label><br>
+          <label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Cialis"><strong> Cialis</strong></label><br>
+  				<label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Levitra"><strong> Levitra</strong></label><br>
+  				<label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Other"><strong> Other (pumps, penile injections, penile implants, supplements, herbs, or other over-the-counter products)</strong></label>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class=" button expand round" id="have-you-ever-been-treated-for-ED-WM-btn" style="display: none;">CONTINUE</a>
+  				<a href="javascript:void(0)" class="button expand round" id="have-you-ever-been-treated-for-ED-NM-btn">NO, I HAVE NEVER USED ANY MEDICATION OR SUPPLIMENT</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- have-you-ever-been-treated-for-ED Details -->
+	<div id="ED-Div"></div>
+
+	<!-- did-you-experience-any-serious-side-effect  -->
+	<div class="row hide" id="did-you-experience-any-serious-side-effect">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_21">❮</a>
+        <a href="javascript:void(0)" class="left" id="backButton_22">❮</a>
+        <a href="javascript:void(0)" class="left" id="backButton_23">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Did you experience any serious side effect <strong>that made you stop</strong>?</h5><br/>
+          <label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, never had any side effects" class="did-you-experience-any-serious-side-effect"><strong> No, never had any side effects</strong></label><br>
+					<label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, the side effects did not make me stop" class="did-you-experience-any-serious-side-effect"><strong> No, the side effects did not make me stop</strong></label><br>
+					<label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="Yes" class="did-you-experience-any-serious-side-effect"><strong> Yes</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- explain-the-side-effects -->
+	<div class="row hide" id="explain-the-side-effects">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_60">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="explain-the-side-effects-error"></label>
+          <h5>Please explain the side effects.</h5><br/>         
+			    <%= text_area_tag 'Please explain the side effects', nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="explain-the-side-effects-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- stisfying-enough-for-sex  -->
+	<div class="row hide" id="stisfying-enough-for-sex">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_25">❮</a>
+        <a href="javascript:void(0)" class="left" id="backButton_26">❮</a>        
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?</h5><br/>
+          <label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, every time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, every time</strong></label><br>
+					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, more than half the time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, more than half the time</strong></label><br>
+					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, on occasion" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, on occasion</strong></label><br>
+					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, but rarely" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, but rarely</strong></label><br>
+					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="I have NO problem getting or maintaining an erection" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> I have NO problem getting or maintaining an erection</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- how-did-your-ED-begin  -->
+	<div class="row hide" id="how-did-your-ED-begin">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_27">❮</a>       
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>How did your ED begin? Select the one that best describes your ED.</h5><br/>
+          <label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Gradually but has worsened over time" class="how-did-your-ED-begin"><strong> Gradually but has worsened over time</strong></label><br>
+					<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly but not with a new partner" class="how-did-your-ED-begin"><strong> Suddenly but not with a new partner</strong></label><br>
+					<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly with a new partner" class="how-did-your-ED-begin"><strong> Suddenly with a new partner</strong></label><br>
+					<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="I do not recall how it begin" class="how-did-your-ED-begin"><strong> I do not recall how it begin</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- Do you get erections:  -->
+	<div class="row hide" id="do-you-get-erections">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_28">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Do you get erections:</h5><br/>
+          <%= hidden_field_tag "Do you get erections?[]", nil %>
+          <label for="do-you-get-erections"><input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When masturbating"><strong> When masturbating</strong></label><br>
+					<label for="do-you-get-erections"><input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When you wake up"><strong> When you wake up</strong></label><br>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class="button expand round" id="do-you-get-erections-btn">NEITHER</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+
+	<!-- erections-info -->
+	<div id="erections-info"></div>
+
+	<!-- email-info2. If Have you had a physical exam with a healthcare provider in the past five years?  == NO  -->
+	<div class="row hide" id="email-info2">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_32">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="email-2-error"></label>
+          <h5>No problem. We know how busy you are.</h5>
+          <p>Enter your email below and we'll send you the nearest and most affordable locations in your area so you can see a healthcare provider. After, come on back and a physician will review your information and if appropriate, write a prescription to your pharmacy of choice.</p><br/>
+         <%= text_field_tag 'email_2', nil, placeholder: "E-mail" %>			   
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class="button expand round" id="email-info2-btn">SUBMIT YOUR E-MAIL</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Please explain your exam in more detail please. -->
+	<div class="row hide" id="explain-your-exam">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_33">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="explain-your-exam-error"></label>
+          <h5>Please explain your exam in more detail please.</h5><br/>         
+			    <%= text_area_tag 'Please explain your exam in more detail', nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="explain-your-exam-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- blood-pressure  -->
+	<div class="row hide" id="blood-pressure">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_34">❮</a>       
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>You need to know blood pressure (BP) within the last 6 months to receive treatment. It is an important factor in deciding whether it is safe for you to use ED medication. It is essential that you are accurate and honest about your BP. When used improperly these medicationscan cause serious harm, or death. Do not proceed if you do not know your BP.</h5><br/>
+          <label for="blood-pressure"><input type="radio" name="Have you know your blood pressure?" value="Continue, I know my blood pressure" class="blood-pressure"><strong> Continue, I know my blood pressure.</strong></label><br>
+					<label for="blood-pressure"><input type="radio" name="Have you know your blood pressure?" value="I Do not know my blood pressure" class="blood-pressure"><strong> I Do not know my blood pressure</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- email-info3. If I do not know my blood pressure -->
+	<div class="row hide" id="email-info3">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_35">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="email-info3-error"></label>
+          <h5>No problem. Enter your email address and we will send you the closest place to get your blood pressure reading for free.</h5><br/>
+         <%= text_field_tag 'email_3', nil, placeholder: "E-mail" %>			   
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+	    		<a href="javascript:void(0)" class="button expand round" id="email-info3-btn">GET FREE BLOOD PRESSURE READING</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- top-blood-pressure-reading  -->
+	<div class="row hide" id="top-blood-pressure-reading">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_36">❮</a>       
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?</h5>
+          <p>When a healthcare provider measures your blood pressure they will state the result as one higher number over another lower number (e.g., 120/80). The top number is called the systolic pressure and measures how high your blood pressure reaches when the heart contracts fully.</p><br/>
+          <label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="95-120" class="top-blood-pressure-reading"><strong> 95-120</strong></label><br>
+					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="120-139" class="top-blood-pressure-reading"><strong> 120-139</strong></label><br>
+					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="140-159" class="top-blood-pressure-reading"><strong> 140-159</strong></label><br>
+					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="160 or higher" class="top-blood-pressure-reading"><strong> 160 or higher</strong></label><br>
+					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="Less than 95" class="top-blood-pressure-reading"><strong> Less than 95</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- bottom-blood-pressure-reading  -->
+	<div class="row hide" id="bottom-blood-pressure-reading">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_37">❮</a>       
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?</h5>
+          <p>The bottom number is called the diastolic pressure and measures how low your blood pressure goes when the heart is most relaxed.</p><br/>
+          <label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="65-80" class="bottom-blood-pressure-reading"><strong> 65-80</strong></label><br>
+					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="80-90" class="bottom-blood-pressure-reading"><strong> 80-90</strong></label><br>
+					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="90-100" class="bottom-blood-pressure-reading"><strong> 90-100</strong></label><br>
+					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Over 100" class="bottom-blood-pressure-reading"><strong> Over 100</strong></label><br>
+					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Less than 65" class="bottom-blood-pressure-reading"><strong> Less than 65</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- confirm-blood-pressure-reading  -->
+	<div class="row hide" id="confirm-blood-pressure-reading">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_38">❮</a>       
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Please confirm your blood pressure reading within the last 6 months was</h5><br/>
+          <h3><span class="top-bp-reading"></span> / <span class="bottom-bp-reading"></span> mmHg</h3><br/>
+         	<label for="confirm-blood-pressure-reading"><input type="radio" name="Please confirm your blood pressure reading" value="Yes, that is my blood pressure" class="confirm-blood-pressure-reading"><strong> Yes, that is my blood pressure</strong></label><br>
+					<label for="confirm-blood-pressure-reading"><input type="radio" name="Please confirm your blood pressure reading" value="No, go back and let me re-enter it" class="confirm-blood-pressure-reading"><strong> No, go back and let me re-enter it</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- describes-your-libido  -->
+	<div class="row hide" id="describes-your-libido">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_39">❮</a>       
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Which of the following best describes your libido (your desire to have sex)? My desire to have sex is:</h5><br/>          
+         	<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was" class="describes-your-libido"><strong> Less than it was</strong></label><br>
+					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was because I know I have trouble with erections" class="describes-your-libido"><strong> Less than it was because I know I have trouble with erections</strong></label><br>
+					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less and it started before I had trouble with erections" class="describes-your-libido"><strong> Less and it started before I had trouble with erections</strong></label><br>
+					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less but I don't know which came first (less desire or trouble with erections)" class="describes-your-libido"><strong> Less but I don't know which came first (less desire or trouble with erections)</strong></label><br>
+					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Unchanged" class="describes-your-libido"><strong> Unchanged</strong></label><br>
+	      </div>
+      </div>
+	  </div>
+	</div>
+	<!-- select-ED-conditions  -->
+	<div class="row hide" id="select-ED-conditions">
+		<div id="modal1" class="modal hide">
+			<div align="center">
+				<h4>Next section</h4><br>
+				<p>Great, thank you. We need to know more about your medical history to ensure ED medications are safe for you. Some conditions are complex and are better treated by a physician in person.</p>
+				<div class="try-button"> 
+					<a href="javascript:void(0)" id="modal1-btn" class="button round" rel="modal:close">Understood</a>
+				</div>
+			</div>		
+		</div>
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_40">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Do you have any of the following conditions? Select all that apply.</h5>
+          <p>Some cases of ED are best managed by a healthcare provider you visit in person.</p><br/>
+          <%= hidden_field_tag "Do you get erections?[]", nil %>
+          <label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="For health reasons, or any reason, you have been advised not to have sex"><strong> For health reasons, or any reason, you have been advised not to have sex</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="HIV"><strong> HIV</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Severe low blood pressure"><strong> Severe low blood pressure</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="A prior heart attack, heart failure, or narrowing of the arteries"><strong> A prior heart attack, heart failure, or narrowing of the arteries</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any clotting or bleeding disorder"><strong> Any clotting or bleeding disorder</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Stroke or severe insufficiency of the autonomic nervous system"><strong> Stroke or severe insufficiency of the autonomic nervous system</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any history of QT prolongation in you, or even your family"><strong> Any history of QT prolongation in you, or even your family</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Sickle cell anemia, myeloma, or leukemia"><strong> Sickle cell anemia, myeloma, or leukemia</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Retinitis pigmentosa or anterior ischemic optic neuropath"><strong> Retinitis pigmentosa or anterior ischemic optic neuropath</strong></label><br>
+					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Idiopathic hypertrophic subaortic stenosis"><strong> Idiopathic hypertrophic subaortic stenosis</strong></label><br>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="select-ED-conditions-btn">NONE APPLY</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- select-conditions  -->
+	<div class="row hide" id="select-conditions">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_41">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Do you have any of these conditions? Select all that apply.</h5><br/>
+          <%= hidden_field_tag "Do you have any of the following conditions?[]", nil %>
+					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A marked curve or bend in the penis that interferes with sex, or Peyronie's disease"><strong> A marked curve or bend in the penis that interferes with sex, or Peyronie's disease</strong></label><br>
+					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Pain with erections or with ejaculation"><strong> Pain with erections or with ejaculation</strong></label><br>
+					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A foreskin that is too tight"><strong> A foreskin that is too tight</strong></label><br>
+					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)"><strong> Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)</strong></label><br>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="select-conditions-btn">NONE OF THE ABOVE</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- lifestyle-habits  -->
+	<div class="row hide" id="lifestyle-habits">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_42">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.</h5><br/>
+          <%= hidden_field_tag "ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]", nil %>
+					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not get as much exercise as I should"><strong> I do not get as much exercise as I should</strong></label><br>
+					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not eat as healthfully as I should"><strong> I do not eat as healthfully as I should</strong></label><br>
+					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="Smoke tobacco"><strong> Smoke tobacco</strong></label><br>
+					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I drink more than I should (greater than 2 drinks/day)"><strong> I drink more than I should (greater than 2 drinks/day)</strong></label><br>
+					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not sleep as much as I should"><strong> I do not sleep as much as I should</strong></label><br>
+					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I'm 20+ lbs overweight"><strong> I'm 20+ lbs overweight</strong></label><br>					
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="lifestyle-habits-btn">NONE APPLY</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- both-effective-and-safe-dosages-of-medication-conditions  -->
+	<div class="row hide" id="both-effective-and-safe-dosages-of-medication-conditions">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_43">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions. Check all that apply.</h5><br/>
+          <%= hidden_field_tag "To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]", nil %>
+					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Surgery or radiation to the prostate or pelvis"><strong> Surgery or radiation to the prostate or pelvis</strong></label><br>
+					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Kidney transplant or any condition affecting the kidney"><strong> Kidney transplant or any condition affecting the kidney</strong></label><br>
+					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Liver disease"><strong> Liver disease</strong></label><br>
+					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases"><strong> Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases</strong></label><br>
+					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Stomach, intestinal, or bowel ulcers"><strong> Stomach, intestinal, or bowel ulcers</strong></label><br>
+					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Heart arrhythmias, which is an abnormal beating of the heart"><strong> Heart arrhythmias, which is an abnormal beating of the heart</strong></label><br>
+					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs"><strong> Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs</strong></label><br>	
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="both-effective-and-safe-dosages-of-medication-conditions-btn">NONE APPLY</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- symptoms-options  -->
+	<div class="row hide" id="symptoms-options">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_44">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.</h5>
+          <h5>Do you have any of the following symptoms?</h5><br/>
+          <%= hidden_field_tag "People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
+					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)"><strong> Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)</strong></label><br>
+					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Chest pain (angina) or shortness of breath while walking up 2 flights of stairs"><strong> Chest pain (angina) or shortness of breath while walking up 2 flights of stairs</strong></label><br>
+					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Any episodes of unexplained fainting, lightheadedness, or dizziness"><strong> Any episodes of unexplained fainting, lightheadedness, or dizziness</strong></label><br>
+					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)"><strong> Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)</strong></label><br>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="symptoms-options-btn">NONE APPLY</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- symptoms-options-2  -->
+	<div class="row hide" id="symptoms-options-2">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_45">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.</h5>
+					<h5>Do any of the following apply to you?</h5><br/>
+         	<%= hidden_field_tag "People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
+					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High cholesterol"><strong> High cholesterol</strong></label><br>
+					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My father had a heart attack or heart disease at 55 years or younger"><strong> My father had a heart attack or heart disease at 55 years or younger</strong></label><br>
+					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My mother had a heart attack or heart disease at 65 years or younger"><strong> My mother had a heart attack or heart disease at 65 years or younger</strong></label><br>
+					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="Diabetes"><strong> Diabetes</strong></label><br>
+					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High blood pressure"><strong> High blood pressure</strong></label><br>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="symptoms-options-2-btn">NONE APPLY</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- conjunction-with-other-medication-info  -->
+	<div class="row hide" id="conjunction-with-other-medication-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_46">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">         
+					<h5><strong>Death can result</strong> if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used...</h5><br/>
+         	<%= hidden_field_tag "Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]", nil %>
+					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Medicine containing nitrates"><strong> Medicine containing nitrates</strong></label><br>
+					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin)."><strong> Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin).</strong></label><br>
+					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro"><strong> Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro</strong></label><br>
+					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Sildenafil (Revatio) used to treat pulmonary hypertension"><strong> Sildenafil (Revatio) used to treat pulmonary hypertension</strong></label><br>
+					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)"><strong> Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)</strong></label><br>
+					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Adempas (Riociquat), which is used to treat pulmonary hypertension"><strong> Adempas (Riociquat), which is used to treat pulmonary hypertension</strong></label><br>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="conjunction-with-other-medication-info-btn">NONE APPLY</a>
+	    	</div>
+	    </div>	    
+	  </div>
+	</div>
+	<!-- conjunction-with-other-recreational-drugs-info  -->
+	<div class="row hide" id="conjunction-with-other-recreational-drugs-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_47">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <h5>Death can result if ED meds are used in conjunction with recreational drugs.</h5>
+					<h5>Have you, or are you currently using, Poppers, Rush, amyl nitrate, butyl nitrate, or other recreational drugs (excluding medical marijuana)?</h5><br/>
+         	<label for="conjunction-with-other-recreational-drugs-info"><input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="No" class="conjunction-with-other-recreational-drugs-info"><strong> No</strong></label><br>
+					<label for="conjunction-with-other-recreational-drugs-info"><input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="Yes" class="conjunction-with-other-recreational-drugs-info"><strong> Yes</strong></label><br>
+	      </div>
+      </div>      	    
+	  </div>
+	</div>
+	<!-- are-you-taking-any-other-medicines  -->
+	<div class="row hide" id="are-you-taking-any-other-medicines">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_48">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">          
+					<h5>Are you taking any other medicines (e.g., erythromycin, antifungals) or over the counter medicines (e.g. allergy medications, pain relievers, herbs, vitamins, other supplements)?</h5><br/>
+         	<label for="are-you-taking-any-other-medicines"><input type="radio" name="Are you taking any other medicines?" value="No" class="are-you-taking-any-other-medicines"><strong> No</strong></label><br>
+					<label for="are-you-taking-any-other-medicines"><input type="radio" name="Are you taking any other medicines?" value="Yes" class="are-you-taking-any-other-medicines"><strong> Yes</strong></label><br>
+	      </div>
+      </div>      	    
+	  </div>
+	</div>
+	<!-- which-recreational-drugs-info -->
+	<div class="row hide" id="which-recreational-drugs-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_49">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="which-recreational-drugs-info-error"></label>
+          <h5>Which recreational drugs and how frequently do you use them?</h5><br/>         
+			    <%= text_area_tag "Which recreational drugs and how frequently do you use them?", nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="which-recreational-drugs-info-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- allergies-info  -->
+	<div class="row hide" id="allergies-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_50">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">          
+					<h5>Do you have any allergies to food, dyes, medication, or anything else?</h5>
+					<p>Be sure to include any allergies to galactose, phenylalanine, or to any ED medicines, including but not limited to: avanafil (Stendra), sildenafil (Revatio / Viagra), tadalfil (Cialis), and vardenafil (Levitra, Staxyn).</p><br/>
+   				<label for="allergies-info"><input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="No, I do not have any allergies to food, dyes, or medication" class="allergies-info"><strong> No, I do not have any allergies to food, dyes, or medication.</strong></label><br>
+					<label for="allergies-info"><input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="Yes I have allergies" class="allergies-info"><strong> Yes I have allergies</strong></label><br>
+	      </div>
+      </div>      	    
+	  </div>
+	</div>
+	<!-- which-medications-info -->
+	<div class="row hide" id="which-medications-info">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_51">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="which-medications-info-error"></label>
+          <h5>Which medications? Please list dose, as well.</h5><br/>         
+			    <%= text_area_tag "Which medications? Please list dose, as well", nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="which-medications-info-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- have-you-been-troubled-info  -->
+	<div class="row hide" id="have-you-been-troubled-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_52">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+	  	<div id="modal2" class="modal hide">
+				<div align="center">
+					<h4>Next section</h4><br>
+					<p>The next set of questions are specific to your ED symptoms and general mood.</p>
+					<div class="try-button"> 
+						<a href="javascript:void(0)" id="modal2-btn" class="button round" rel="modal:close">Understood</a>
+					</div>
+				</div>		
 			</div>
-			<a href="javascript:void(0)" class="button round disabled" id="telemedicineLaw-btn">GET STARTED</a>
-		</div>
-		
-		<div id="zipcode-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_1" style="float: left;">Back</a><br/><br/><br/>			
-			<%= label_tag "What's your zip code?"%>
-			<%= text_field_tag 'zip_code', nil, placeholder: "Zip Code", maxlength: 5 %>
-			<a href="javascript:void(0)" class="button round" id="zipcode-btn">Continue</a>
-		</div>
-
-		<div id="dob-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_2" style="float: left;">Back</a><br/><br/><br/>
-			<div id="dob-error"></div>
-			<%= label_tag "What's your birthdate?"%>
-			<%= text_field_tag 'dob', nil, placeholder: "mm/dd/yyyy", class: 'datepicker', readonly: true %>
-			<a href="javascript:void(0)" class="button round" id="dob-btn">Continue</a>
-		</div>
-
-		<div id="email-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_3" style="float: left;">Back</a><br/><br/><br/>
-			<div id="email-error"></div>
-			<%= label_tag "What's your e-mail?"%>
-			<%= email_field_tag 'email', nil, placeholder: "Email" %>
-			<!-- <a href="javascript:void(0)" class="button round disabled" id="email-btn">Continue</a> -->
-			<a href="javascript:void(0)" class="button round" id="email-btn">Continue</a>
-		</div>
-
-		<div id="gender-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_4" style="float: left;">Back</a><br/><br/><br/>
-			<%= label_tag "What's your gender?"%>			
-		 	<input type="radio" name="gender" value="Male" id="gender" class="gender"> Male<br>
-			<input type="radio" name="gender" value="Female" id="gender" class="gender"> Female<br>
-		</div>
-
-
-		<div id="anticipate-times-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_5" style="float: left;">Back</a><br/><br/><br/>
-			<p>How many times do you anticipate using the medication for sexual activity, if prescribed?</p>
-			<small>The Roman Pharmacy Network can ship individual single packets for each use (i.e., dose).</small> <br/>
-			<input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="4" class="anticipate-times"> 4 uses per month<br>
-			<input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="6" class="anticipate-times"> 6 uses per month<br>
-			<input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="8" class="anticipate-times"> 8 uses per month<br>
-			<input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="10" class="anticipate-times"> 10 uses per month<br>			
-		</div>
-
-		<div id="gender-female-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_6" style="float: left;">Back</a><br/><br/><br/>
-			<p>How can we help?</p>
-			<p>Unfortunately our ED treatment is currently only available to men. However, we would love to know if there’s anything we can do to help. Please leave your email and comments below.</p>
-			<div id="female-email-error"></div>
-			<%= text_field_tag 'female[email_1]', nil, placeholder: "Email" %>
-			<%= text_area_tag 'female[comments]', nil, placeholder: "Comments" %>
-			<a href="javascript:void(0)" class="button round" id="gender-female-btn">Next</a>
-		</div>
-
-		<div id="gender-female-final" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_7" style="float: left;">Back</a><br/><br/><br/>
-			<p>Thank you!</p>
-			<p>We will review your message and get back to you as soon as possible.</p>
-		</div>
-
-		<div id="drug-preference-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_8" style="float: left;">Back</a><br/><br/><br/>
-			<p>Do you have a drug preference?</p>
-			<p>Your preference will be shared with a physician, who will use their medical judgement to determine the best treatment plan. Their decision may or may not match your preference. Prices listed are from The Roman Pharmacy Network for the recommended starting dose for a healthy patient.</p>
-			<label id="abc"><strong>Sildenafil</strong>(<small> Sildenafil </small>)
-			<input type="radio" name="Do you have a drug preference?" value="Sildenafil" drug-price="6" class="drug-preference"> as low as $6 per dose<br></label>
-			<label><strong>Sildenafil</strong>(<small> Viagra </small>)
-			<input type="radio" name="Do you have a drug preference?" value="Viagra" drug-price="63" class="drug-preference"> as low as $63 per dose<br></label>
-			<label><strong>Tadalafil</strong>(<small> Cialis </small>)
-			<input type="radio" name="Do you have a drug preference?" value="Cialis" drug-price="62" class="drug-preference"> as low as $62 per dose<br></label>
-			<label><strong>Vardenafil</strong>(<small> Levitra </small>)
-			<input type="radio" name="Do you have a drug preference?" value="Levitra" drug-price="52" class="drug-preference"> as low as $52 per dose<br></label>
-			<div id="no-preference-div"></div>			
-			<a href="javascript:void(0)" id="no-preference-btn">Please tell the physician I don’t have a preference.</a>
-		</div>
-
-		<%= render partial: 'dosage_preference'%>
-		<div id="how-often-do-you-want-your-medication-to-be-shipped" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_11" style="float: left;">Back</a>
-			<a href="javascript:void(0)" class="button tiny" id="backButton_12" style="float: left;">Back</a><br/><br/><br/>
-			<h3>How often do you want your medication to be shipped?</h3>
-			<p>Would you like to save money by receiving a 3 months supply every 3 months or you would rather receive 1 box every month?</p>
-			<h3>SHIP EVERY 3 MONTHS</h3>
-			<h2>$<span id="drug-month-price"></span>/mo</h2>
-			<p>Billed $<span id="drug-3-month-price"></span> every 3 months. Cancel anytime.</p>
-			<a href="javascript:void(0)" class="button round" id="how-often-do-you-want-your-medication-to-be-shipped-btn"></a>
-			<br><br><br><br>
-
-			<h3>SHIP EVERY MONTH</h3>
-			<h2>$<span id="drug-month-price-wd"></span>/mo</h2>
-			<p>Billed monthly. Cancel anytime.</p>
-			<%= hidden_field_tag "Shipped Type"%>
-			<%= hidden_field_tag "Total Billed"%>
-			<%= hidden_field_tag "Drug Strength"%>			
-			<a href="javascript:void(0)" class="button round" id="how-often-do-you-want-your-medication-to-be-shipped-month-btn">PAY REGULAR PRICE</a>
-		</div>
-
-		<div id="how-often-do-you-want-your-medication-to-be-shipped-no-preference" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton-no-preference" style="float: left;">Back</a>
-			<h3>How often do you want your medication to be shipped?</h3>
-			<h5>Would you like to save money by receiving a 3 months supply every 3 months or you would rather receive 1 box every month?</h5>
-			<p><strong>SHIP EVERY 3 MONTHS</strong></p>
-			<h1>SAVE $5/mo</h1>
-			<p>Billed every 3 months. Cancel anytime.</p>			
-			<a href="javascript:void(0)" class="button round" id="how-often-do-you-want-your-medication-to-be-shipped-no-preference-btn">SAVE $60 A YEAR</a>
-			<br><br><br><br>
-			<h3>SHIP EVERY MONTH</h3>
-			<p>Billed monthly. Cancel anytime.</p>			
-			<a href="javascript:void(0)" class="button round" id="how-often-do-you-want-your-medication-to-be-shipped-month-no-preference-btn">PAY REGULAR PRICE</a>
-		</div>
-
-		<div id="have-you-ever-been-treated-for-ED" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_13" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Have you ever been treated for ED? This includes medications prescribed or purchased over the counter, and any other treatments.</h3><br>
-			<%= hidden_field_tag "Have you ever been treated for ED?[]", nil %>
-			<input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Viagra"> Viagra<br>
-  		<input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Cialis"> Cialis<br>
-  		<input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Levitra"> Levitra<br>
-  		<input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Other"> Other (pumps, penile injections, penile implants, supplements, herbs, or other over-the-counter products)<br>
-  		<a href="javascript:void(0)" class="button round" id="have-you-ever-been-treated-for-ED-WM-btn" style="display: none;">CONTINUE</a>
-  		<a href="javascript:void(0)" class="button round" id="have-you-ever-been-treated-for-ED-NM-btn">NO, I HAVE NEVER USED ANY MEDICATION OR SUPPLIMENT</a>
-		</div>
-
-		<div id="ED-Div"></div>
-
-		<div id="did-you-experience-any-serious-side-effect" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_21" style="float: left;">Back</a>
-			<a href="javascript:void(0)" class="button tiny" id="backButton_22" style="float: left;">Back</a>
-			<a href="javascript:void(0)" class="button tiny" id="backButton_23" style="float: left;">Back</a>
-			<br/><br/><br/>
-			<h3>Did you experience any serious side effect <strong>that made you stop</strong>?</h3>
-			<input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, never had any side effects" class="did-you-experience-any-serious-side-effect">No, never had any side effects<br>
-			<input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, the side effects did not make me stop" class="did-you-experience-any-serious-side-effect">No, the side effects did not make me stop<br>
-			<input type="radio" name="Did you experience any serious side effect that made you stop?" value="Yes" class="did-you-experience-any-serious-side-effect">Yes<br>
-		</div>
-
-		<div id="explain-the-side-effects" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_60" style="float: left;">Back</a>
-			<h3>Please explain the side effects.</h3>
-			<div id="explain-the-side-effects-error"></div>
-			<%= text_area_tag "Please explain the side effects" %>
-			<a href="javascript:void(0)" class="button round" id="explain-the-side-effects-btn">CONFIRM</a>
-		</div>
-
-		<div id="stisfying-enough-for-sex" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_25" style="float: left; display: none;">Back</a>
-			<a href="javascript:void(0)" class="button tiny" id="backButton_26" style="float: left; display: none;">Back</a>
-			<br/><br/><br/>
-			<h3>Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?</h3>
-			<input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, every time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex">Yes, every time<br>
-			<input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, more than half the time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex">Yes, more than half the time<br>
-			<input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, on occasion" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex">Yes, on occasion<br>
-			<input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, but rarely" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex">Yes, but rarely<br>
-			<input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="I have NO problem getting or maintaining an erection" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex">I have NO problem getting or maintaining an erection<br>
-		</div>
-
-		<div id="how-did-your-ED-begin" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_27" style="float: left;">Back</a>
-			<br/><br/><br/>
-			<h4>How did your ED begin? Select the one that best describes your ED.</h4>
-			<input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Gradually but has worsened over time" class="how-did-your-ED-begin">Gradually but has worsened over time<br>
-			<input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly but not with a new partner" class="how-did-your-ED-begin">Suddenly but not with a new partner<br>
-			<input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly with a new partner" class="how-did-your-ED-begin">Suddenly with a new partner<br>
-			<input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="I do not recall how it begin" class="how-did-your-ED-begin">I do not recall how it begin<br>
-		</div>
-
-		<div id="do-you-get-erections" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_28" style="float: left;">Back</a>
-			<br/><br/><br/>
-			<%= hidden_field_tag "Do you get erections?[]", nil %>
-			<input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When masturbating"> When masturbating<br>
-			<input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When you wake up"> When you wake up<br>
-			<a href="javascript:void(0)" class="button round" id="do-you-get-erections-btn">NEITHER</a>		
-		</div>
-
-		<div id="erections-info"></div>		
-		<div id="email-info2" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_32" style="float: left;">Back</a><br/><br/><br/>
-			<h4>No problem. We know how busy you are.</h4>
-			<p>Enter your email below and we'll send you the nearest and most affordable locations in your area so you can see a healthcare provider. After, come on back and a physician will review your information and if appropriate, write a prescription to your pharmacy of choice.</p>
-			<div id="email-2-error"></div>
-			<%= text_field_tag 'email_2', nil, placeholder: "E-mail" %>
-			<a href="javascript:void(0)" class="button round" id="email-info2-btn">SUBMIT YOUR E-MAIL</a>
-		</div>
-
-		<div id="explain-your-exam" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_33" style="float: left;">Back</a><br/><br/><br/>
-			<div id="explain-your-exam-error"></div>
-			<h4>Please explain your exam in more detail please.</h4>
-			<%= text_area_tag 'Please explain your exam in more detail'%>
-			<a href="javascript:void(0)" class="button round" id="explain-your-exam-btn">CONFIRM</a>
-		</div>
-
-		<div id="blood-pressure" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_34" style="float: left;">Back</a><br/><br/><br/>
-			<h5>You need to know blood pressure (BP) within the last 6 months to receive treatment. It is an important factor in deciding whether it is safe for you to use ED medication. It is essential that you are accurate and honest about your BP. When used improperly these medicationscan cause serious harm, or death. Do not proceed if you do not know your BP.</h5>
-			<input type="radio" name="Have you know your blood pressure?" value="Continue, I know my blood pressure" class="blood-pressure">Continue, I know my blood pressure.<br>
-			<input type="radio" name="Have you know your blood pressure?" value="I Do not know my blood pressure" class="blood-pressure">I Do not know my blood pressure<br>
-		</div>
-
-		<div id="email-info3" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_35" style="float: left;">Back</a><br/><br/><br/>
-			<div id="email-info3-error"></div>
-			<h5>No problem. Enter your email address and we will send you the closest place to get your blood pressure reading for free.</h5>
-			<%= text_field_tag 'email_3', nil, placeholder: "E-mail" %>
-			<a href="javascript:void(0)" class="button round" id="email-info3-btn">GET FREE BLOOD PRESSURE READING</a>
-		</div>
-
-		<div id="top-blood-pressure-reading" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_36" style="float: left;">Back</a><br/><br/><br/>
-			<h5>What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?</h5>
-			<p>When a healthcare provider measures your blood pressure they will state the result as one higher number over another lower number (e.g., 120/80). The top number is called the systolic pressure and measures how high your blood pressure reaches when the heart contracts fully.</p>
-			<input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="95-120" class="top-blood-pressure-reading">95-120<br>
-			<input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="120-139" class="top-blood-pressure-reading">120-139<br>
-			<input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="140-159" class="top-blood-pressure-reading">140-159<br>
-			<input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="160 or higher" class="top-blood-pressure-reading">160 or higher<br>
-			<input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="Less than 95" class="top-blood-pressure-reading">Less than 95<br>
-
-		</div>
-
-		<div id="bottom-blood-pressure-reading" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_37" style="float: left;">Back</a><br/><br/><br/>
-			<h5>What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?</h5>
-			<p>The bottom number is called the diastolic pressure and measures how low your blood pressure goes when the heart is most relaxed.</p>
-			<input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="65-80" class="bottom-blood-pressure-reading">65-80<br>
-			<input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="80-90" class="bottom-blood-pressure-reading">80-90<br>
-			<input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="90-100" class="bottom-blood-pressure-reading">90-100<br>
-			<input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Over 100" class="bottom-blood-pressure-reading">Over 100<br>
-			<input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Less than 65" class="bottom-blood-pressure-reading">Less than 65<br>
-		</div>
-
-		<div id="confirm-blood-pressure-reading" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_38" style="float: left;">Back</a><br/><br/><br/>
-			<h4>Please confirm your blood pressure reading within the last 6 months was</h4>
-			<h3><span class="top-bp-reading"></span> / <span class="bottom-bp-reading"></span> mmHg</h3>
-			<input type="radio" name="Please confirm your blood pressure reading" value="Yes, that is my blood pressure" class="confirm-blood-pressure-reading">Yes, that is my blood pressure<br>
-			<input type="radio" name="Please confirm your blood pressure reading" value="No, go back and let me re-enter it" class="confirm-blood-pressure-reading">No, go back and let me re-enter it<br>
-		</div>
-
-		<div id="describes-your-libido" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_39" style="float: left;">Back</a><br/><br/><br/>
-			<h4>Which of the following best describes your libido (your desire to have sex)? My desire to have sex is:</h4>
-			<input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was" class="describes-your-libido">Less than it was<br>
-			<input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was because I know I have trouble with erections" class="describes-your-libido">Less than it was because I know I have trouble with erections<br>
-			<input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less and it started before I had trouble with erections" class="describes-your-libido">Less and it started before I had trouble with erections<br>
-			<input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less but I don't know which came first (less desire or trouble with erections)" class="describes-your-libido">Less but I don't know which came first (less desire or trouble with erections)<br>
-			<input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Unchanged" class="describes-your-libido">Unchanged<br>
-		</div>
-
-		<div id="select-ED-conditions" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_40" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Do you have any of the following conditions? Select all that apply.</h3>
-			<p>Some cases of ED are best managed by a healthcare provider you visit in person.</p>
-			<%= hidden_field_tag "Do you have any of the following conditions? Select all that apply[]", nil %>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="For health reasons, or any reason, you have been advised not to have sex"> For health reasons, or any reason, you have been advised not to have sex<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="HIV"> HIV<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Severe low blood pressure"> Severe low blood pressure<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="A prior heart attack, heart failure, or narrowing of the arteries"> A prior heart attack, heart failure, or narrowing of the arteries<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any clotting or bleeding disorder"> Any clotting or bleeding disorder<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Stroke or severe insufficiency of the autonomic nervous system"> Stroke or severe insufficiency of the autonomic nervous system<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any history of QT prolongation in you, or even your family"> Any history of QT prolongation in you, or even your family<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Sickle cell anemia, myeloma, or leukemia"> Sickle cell anemia, myeloma, or leukemia<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Retinitis pigmentosa or anterior ischemic optic neuropath"> Retinitis pigmentosa or anterior ischemic optic neuropath<br>
-			<input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Idiopathic hypertrophic subaortic stenosis"> Idiopathic hypertrophic subaortic stenosis<br>
-			<a href="javascript:void(0)" class="button round" id="select-ED-conditions-btn">NONE APPLY</a>
-		</div>
-
-		<div id="select-conditions" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_41" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Do you have any of these conditions? Select all that apply.</h3>
-			<%= hidden_field_tag "Do you have any of the following conditions?[]", nil %>
-			<input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A marked curve or bend in the penis that interferes with sex, or Peyronie's disease"> A marked curve or bend in the penis that interferes with sex, or Peyronie's disease<br>
-			<input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Pain with erections or with ejaculation"> Pain with erections or with ejaculation<br>
-			<input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A foreskin that is too tight"> A foreskin that is too tight<br>
-			<input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)"> Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)<br>
-			<a href="javascript:void(0)" class="button round" id="select-conditions-btn">NONE OF THE ABOVE</a>
-		</div>
-
-		<div id="lifestyle-habits" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_42" style="float: left;">Back</a><br/><br/><br/>
-			<h3>ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.</h3>
-			<%= hidden_field_tag "ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]", nil %>
-			<input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not get as much exercise as I should"> I do not get as much exercise as I should<br>
-			<input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not eat as healthfully as I should"> I do not eat as healthfully as I should<br>
-			<input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="Smoke tobacco"> Smoke tobacco<br>
-			<input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I drink more than I should (greater than 2 drinks/day)"> I drink more than I should (greater than 2 drinks/day)<br>
-			<input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not sleep as much as I should"> I do not sleep as much as I should<br>
-			<input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I'm 20+ lbs overweight"> I'm 20+ lbs overweight<br>
-			<a href="javascript:void(0)" class="button round" id="lifestyle-habits-btn">NONE APPLY</a>
-		</div>
-
-		<div id="both-effective-and-safe-dosages-of-medication-conditions" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_43" style="float: left;">Back</a><br/><br/><br/>
-			<h3>To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions. Check all that apply.</h3>
-			<%= hidden_field_tag "To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]", nil %>
-			<input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Surgery or radiation to the prostate or pelvis"> Surgery or radiation to the prostate or pelvis<br>
-			<input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Kidney transplant or any condition affecting the kidney"> Kidney transplant or any condition affecting the kidney<br>
-			<input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Liver disease"> Liver disease<br>
-			<input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases"> Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases<br>
-			<input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Stomach, intestinal, or bowel ulcers"> Stomach, intestinal, or bowel ulcers<br>
-			<input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Heart arrhythmias, which is an abnormal beating of the heart"> Heart arrhythmias, which is an abnormal beating of the heart<br>
-			<input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs"> Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs<br>
-			<a href="javascript:void(0)" class="button round" id="both-effective-and-safe-dosages-of-medication-conditions-btn">NONE APPLY</a>
-		</div>
-
-		<div id="symptoms-options" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_44" style="float: left;">Back</a><br/><br/><br/>
-			<h3>People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.</h3>
-			<h3>Do you have any of the following symptoms?</h3>
-			<%= hidden_field_tag "People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)"> Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)<br>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Chest pain (angina) or shortness of breath while walking up 2 flights of stairs"> Chest pain (angina) or shortness of breath while walking up 2 flights of stairs<br>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Any episodes of unexplained fainting, lightheadedness, or dizziness"> Any episodes of unexplained fainting, lightheadedness, or dizziness<br>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)"> Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)<br>
-			<a href="javascript:void(0)" class="button round" id="symptoms-options-btn">NONE APPLY</a>
-		</div>
-
-		<div id="symptoms-options-2" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_45" style="float: left;">Back</a><br/><br/><br/>
-			<h3>People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.</h3>
-			<h3>Do any of the following apply to you?</h3>
-			<%= hidden_field_tag "People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High cholesterol"> High cholesterol<br>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My father had a heart attack or heart disease at 55 years or younger"> My father had a heart attack or heart disease at 55 years or younger<br>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My mother had a heart attack or heart disease at 65 years or younger"> My mother had a heart attack or heart disease at 65 years or younger<br>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="Diabetes"> Diabetes<br>
-			<input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High blood pressure"> High blood pressure<br>
-			<a href="javascript:void(0)" class="button round" id="symptoms-options-2-btn">NONE APPLY</a>
-		</div>
-
-		<div id="conjunction-with-other-medication-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_46" style="float: left;">Back</a><br/><br/><br/>
-			<h3><strong>Death can result</strong> if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used...</h3>
-			<%= hidden_field_tag "Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]", nil %>
-			<input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Medicine containing nitrates"> Medicine containing nitrates<br>
-			<input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin)."> Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin).<br>
-			<input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro"> Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro<br>
-			<input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Sildenafil (Revatio) used to treat pulmonary hypertension"> Sildenafil (Revatio) used to treat pulmonary hypertension<br>
-			<input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)"> Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)<br>
-			<input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Adempas (Riociquat), which is used to treat pulmonary hypertension"> Adempas (Riociquat), which is used to treat pulmonary hypertension<br>
-			<a href="javascript:void(0)" class="button round" id="conjunction-with-other-medication-info-btn">NONE APPLY</a>
-		</div>
-
-		<div id="conjunction-with-other-recreational-drugs-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_47" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Death can result if ED meds are used in conjunction with recreational drugs.</h3>
-			<h4>Have you, or are you currently using, Poppers, Rush, amyl nitrate, butyl nitrate, or other recreational drugs (excluding medical marijuana)?</h4>
-			<input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="No" class="conjunction-with-other-recreational-drugs-info">No<br>
-			<input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="Yes" class="conjunction-with-other-recreational-drugs-info">Yes<br>
-		</div>
-
-		<div id="are-you-taking-any-other-medicines" style="display: none;">
-		<a href="javascript:void(0)" class="button tiny" id="backButton_48" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Are you taking any other medicines (e.g., erythromycin, antifungals) or over the counter medicines (e.g. allergy medications, pain relievers, herbs, vitamins, other supplements)?</h3>
-			<input type="radio" name="Are you taking any other medicines?" value="No" class="are-you-taking-any-other-medicines">No<br>
-			<input type="radio" name="Are you taking any other medicines?" value="Yes" class="are-you-taking-any-other-medicines">Yes<br>
-		</div>
-
-		<div id="which-recreational-drugs-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_49" style="float: left;">Back</a><br/><br/><br/>
-			<div id="which-recreational-drugs-info-error"></div>
-			<h3>Which recreational drugs and how frequently do you use them?</h3>
-			<%= text_area_tag "Which recreational drugs and how frequently do you use them?"%>
-			<a href="javascript:void(0)" class="button round" id="which-recreational-drugs-info-btn">CONFIRM</a>
-		</div>
-
-		<div id="allergies-info"  style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_50" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Do you have any allergies to food, dyes, medication, or anything else?</h3>
-			<p>Be sure to include any allergies to galactose, phenylalanine, or to any ED medicines, including but not limited to: avanafil (Stendra), sildenafil (Revatio / Viagra), tadalfil (Cialis), and vardenafil (Levitra, Staxyn).</p>
-			<input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="No, I do not have any allergies to food, dyes, or medication" class="allergies-info">No, I do not have any allergies to food, dyes, or medication.<br>
-			<input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="Yes I have allergies" class="allergies-info">Yes I have allergies<br>
-		</div>
-
-		<div id="which-medications-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_51" style="float: left;">Back</a><br/><br/><br/>
-			<div id="which-medications-info-error"></div>
-			<h3>Which medications? Please list dose, as well.</h3>
-			<%= text_area_tag "Which medications? Please list dose, as well"%>
-			<a href="javascript:void(0)" class="button round" id="which-medications-info-btn">CONFIRM</a>
-		</div>
-
-		<div id="have-you-been-troubled-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_52" style="float: left;">Back</a><br/><br/><br/>
-			<h3>In the last 3 weeks, have you been troubled by:</h3>
-			<%= hidden_field_tag "In the last 3 weeks, have you been troubled by[]", nil %>
-			<input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="little interest or pleasure in doing things"> little interest or pleasure in doing things<br>
-			<input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling down, depressed, or hopeless"> feeling down, depressed, or hopeless<br>
-			<input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)"> feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)<br>
-			<input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="worrying too much about different things (enough that it impairs your ability to function at work or at home)"> worrying too much about different things (enough that it impairs your ability to function at work or at home)<br>
-			<a href="javascript:void(0)" class="button round" id="have-you-been-troubled-info-btn">NONE OF THE ABOVE</a>
-		</div>
-
-		<div id="allergic-details" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_53" style="float: left;">Back</a><br/><br/><br/>
-			<div id="allergic-details-error"></div>
-			<h3>What are you allergic to?</h3>
-			<%= text_area_tag "What are you allergic to?"%>
-			<a href="javascript:void(0)" class="button round" id="allergic-details-btn">CONFIRM</a>
-		</div>
-
-		<div id="how-often-have-you-been-troubled-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_54" style="float: left;">Back</a><br/><br/><br/>
-			<h3>How often have you been troubled?</h3>
-			<input type="radio" name="How often have you been troubled?" value="Several Days" class="how-often-have-you-been-troubled-info"> Several Days<br>
-			<input type="radio" name="How often have you been troubled?" value="More than half of the days" class="how-often-have-you-been-troubled-info"> More than half of the days<br>
-			<input type="radio" name="How often have you been troubled?" value="Nearly every day" class="how-often-have-you-been-troubled-info"> Nearly every day<br>
-		</div>
-
-		<div id="is-there-anything-else-we-should-know-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_55" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Is there anything else we should know?</h3>
-			<input type="radio" name="Is there anything else we should know?" value="No" class="is-there-anything-else-we-should-know-info"> No<br>
-			<input type="radio" name="Is there anything else we should know?" value="Yes" class="is-there-anything-else-we-should-know-info"> Yes<br>
-		</div>
-
-		<div id="is-there-anything-else-we-should-know-details" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_56" style="float: left;">Back</a><br/><br/><br/>
-			<div id="is-there-anything-else-we-should-know-details-error"></div>
-			<h3>Is there anything else we should know?</h3>
-			<%= text_area_tag "Is there anything else we should know(details)?"%>
-			<a href="javascript:void(0)" class="button round" id="is-there-anything-else-we-should-know-details-btn">CONFIRM</a>
-		</div>
-
-		<div id="confirm-pharmacy" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_57" style="float: left;">Back</a><br/><br/><br/>
-			<h3>Confirm your pharmacy, if prescribed.</h3>
-			<h5>Roman Pharmacy</h5>
-			<p>FIRST MONTH FREE</p>
-			<p>Included in your price and offers:</p>
-			<li>Guaranteed Pricing</li>
-			<li>Discreet Single Dose Packaging (not child-resistant)</li>
-			<li>Free Shipping</li>
-			<li>First Month of Medication FREE (up to $50)</li>
-			<a href="javascript:void(0)" class="button round" id="confirm-pharmacy-btn">CONFIRM ROMAN PHARMACY</a>
-			<br/><br/>
-			<a href="javascript:void(0)" id="select-different-pharmacy-btn">Select a different pharmacy</a>			
-		</div>
-
-		<div id="other-pharmacy-details" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_58" style="float: left;">Back</a><br/><br/><br/>
-			<div id="other-pharmacy-details-error"></div>
-			<h3>Please enter the name and address of your pharmacy of choice.</h3>
-			<%= text_area_tag "Please enter the name and address of your pharmacy of choice"%>
-			<a href="javascript:void(0)" class="button round" id="other-pharmacy-details-btn">CONFIRM</a>
-		</div>
-
-		<div id="user-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_59" style="float: left;">Back</a><br/><br/><br/>
-			<div id="user-info-error"></div>
-			<h5>Please provide your personal info.</h5>
-			<p>Your data is secured with 128-bit SSL and is HIPAA compliant. Only your physician will have access to your profile.</p>
-			<h5>PLEASE PROVIDE YOUR PERSONAL DETAILS</h5>
-			<%= text_field_tag "user[first_name]", nil, placeholder: "FIRST NAME" %>
-			<%= text_field_tag "user[last_name]", nil, placeholder: "LAST NAME" %>
-			<%= text_field_tag "user[email]", nil, placeholder: "EMAIL" %>
-			<%= text_field_tag "user[street1]", nil, placeholder: "STREET 1" %>
-			<%= text_field_tag "user[street2]", nil, placeholder: "STREET 2" %>
-			<%= text_field_tag "user[city]", nil, placeholder: "CITY" %>
-			<%= text_field_tag "user[state]", nil, placeholder: "STATE" %>
-			<%= text_field_tag "user[zip]", nil, placeholder: "ZIP CODE", maxlength: 5 %>
-			<%= text_field_tag "user[mobile_phone]", nil, placeholder: "MOBILE PHONE" %>
-			<%= text_field_tag "user[password]", nil, placeholder: "CREATE PASSWORD" %>
-			<a href="javascript:void(0)" class="button round" id="user-info-btn">NEXT</a>
-		</div>
-
-		<div id="user-media-info" style="display: none;">
-			<a href="javascript:void(0)" class="button tiny" id="backButton_61" style="float: left;">Back</a><br/><br/><br/>
-			<div id="user-media-info-error"></div>
-			<h3>Please take a photo of yourself and ID.</h3>
-			<p>Telemedicine laws require a physician to know who they are treating. This is why we ask for a photo of you and your ID. These images are securely stored and only seen by your physician and the XYZ Care Team.</p>			
-			<%= label_tag "UPLOAD PROFILE IMAGE"%>
-			<%= file_field_tag "profile_image" %>
-			<div id="image_1"></div>
-			<%= label_tag "UPLOAD PHOTO ID"%>
-			<%= file_field_tag "photo_id_image"%>
-			<div id="image_2"></div>
-			<a href="javascript:void(0)" class="button round" id="user-media-info-btn">REVIEW AND ADD PAYMENT</a>
-		</div>
-
-		<div id="paymentDiv"></div>
- 
-		
-
-	</form>
-</div>
-
-
-
-<script type="text/javascript">
-</script>
-<style type="text/css">
-	a.disabled {
-   pointer-events: none;
-   cursor: default;
-	}
-</style>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">          
+					<h5>In the last 3 weeks, have you been troubled by:</h5><br/>
+   				<%= hidden_field_tag "In the last 3 weeks, have you been troubled by[]", nil %>
+					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="little interest or pleasure in doing things"><strong> little interest or pleasure in doing things</strong></label><br>
+					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling down, depressed, or hopeless"><strong> feeling down, depressed, or hopeless</strong></label><br>
+					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)"><strong> feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)</strong></label><br>
+					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="worrying too much about different things (enough that it impairs your ability to function at work or at home)"><strong> worrying too much about different things (enough that it impairs your ability to function at work or at home)</strong></label><br>
+	      </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">	    		
+	    		<a href="javascript:void(0)" class="button expand round" id="have-you-been-troubled-info-btn">NONE OF THE ABOVE</a>
+	    	</div>
+	    </div>	      	    
+	  </div>
+	</div>
+	<!-- allergic-details -->
+	<div class="row hide" id="allergic-details">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_53">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="allergic-details-error"></label>
+          <h5>What are you allergic to?</h5><br/>         
+			    <%= text_area_tag "What are you allergic to?", nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="allergic-details-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- how-often-have-you-been-troubled-info  -->
+	<div class="row hide" id="how-often-have-you-been-troubled-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_54">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">          
+					<h5>How often have you been troubled?</h5><br/>
+   				<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="Several Days" class="how-often-have-you-been-troubled-info"><strong> Several Days</strong></label><br>
+					<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="More than half of the days" class="how-often-have-you-been-troubled-info"><strong> More than half of the days</strong></label><br>
+					<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="Nearly every day" class="how-often-have-you-been-troubled-info"><strong> Nearly every day</strong></label><br>
+	      </div>
+      </div>      	    
+	  </div>
+	</div>
+	<!-- is-there-anything-else-we-should-know-info  -->
+	<div class="row hide" id="is-there-anything-else-we-should-know-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_55">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">          
+					<h5>Is there anything else we should know?</h5><br/>
+   				<label for="is-there-anything-else-we-should-know-info"><input type="radio" name="Is there anything else we should know?" value="No" class="is-there-anything-else-we-should-know-info"><strong> No</strong></label><br>
+					<label for="is-there-anything-else-we-should-know-info"><input type="radio" name="Is there anything else we should know?" value="Yes" class="is-there-anything-else-we-should-know-info"><strong> Yes</strong></label><br>
+	      </div>
+      </div>      	    
+	  </div>
+	</div>
+	<!-- is-there-anything-else-we-should-know-details -->
+	<div class="row hide" id="is-there-anything-else-we-should-know-details">
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_56">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="is-there-anything-else-we-should-know-details-error"></label>
+          <h5>Is there anything else we should know?</h5><br/>         
+			    <%= text_area_tag "Is there anything else we should know(details)?", nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="is-there-anything-else-we-should-know-details-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!--  confirm-pharmacy -->
+	<div class="row hide" id="confirm-pharmacy">
+	  <div class="row">
+	    <div class="large-12 columns">
+	      <a href="javascript:void(0)" class="left" id="backButton_57">❮</a>	      
+	    </div>
+	  </div>
+	  <hr/>
+	  <div class="large-10 large-offset-1 columns">
+	    <div class="row">
+	      <div class="large-8 large-offset-2 columns">        
+	        <h5>Confirm your pharmacy, if prescribed.</h5><br/>
+	      </div>
+	    </div>  
+		  <div class="row">
+		    <div class="large-8 large-offset-2 columns">	      	
+		      <div class="panel">
+		      	<div class="row">
+			      	<div class="large-6 medium-6 small-6 columns">
+			      		<p><b>Roman Pharmacy</b></p>
+			      	</div>
+			      	<div class="large-4 medium-6 small-6 columns">
+			      		<p style="background-color: #50e3c2;" class="text-center"><b>FIRST MONTH FREE</b></p>
+			      	</div>
+		      	</div>
+		      	<h6>Included in your price and offers:</h6><br/>
+		      	<ul>
+		      		<li>Guaranteed Pricing</li>
+							<li>Discreet Single Dose Packaging (not child-resistant)</li>
+							<li>Free Shipping</li>
+							<li>First Month of Medication FREE (up to $50)</li>
+		      	</ul>
+		      	<div class="row" align="center">
+				      <div class="large-12 columns">
+				        <img src="/assets/h-delivery.png">
+				      </div>
+				    </div><br/>
+		        
+						<div class="row">			    		
+			    		<a href="javascript:void(0)" class="button expand round" id="confirm-pharmacy-btn">CONFIRM ROMAN PHARMACY</a>
+				    </div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="row" align="center">
+		  	<div class="large-8 large-offset-2 columns">
+		  		<u><b><a href="javascript:void(0)" id="select-different-pharmacy-btn">Select a different pharmacy</a></b></u>
+		  	</div>	
+		  </div><br><br/>		 
+		</div> 
+	</div>
+	<!-- confirm modal box -->
+	<div id="modal3" class="modal hide">
+		<div align="center">
+			<h5>Need alternate pharmacy?</h5><br>
+			<p>If you pick a pharmacy outside of the Roman Pharmacy Network, and qualify for a prescription, we will not be able to guarantee the price of the medication and provide free monthly delivery.</p>
+			<p>Are you sure you want to continue?</p>
+			<div class="try-button"> 
+				<a href="javascript:void(0)" class="button expand round" rel="modal:close">NEVERMIND, PICK ROMAN PHARMACY</a>
+			</div>
+			<div class="try-button"> 
+				<a href="javascript:void(0)" class="button expand secondary round" id="modal3-btn">YES, I'M SURE</a>
+			</div>
+		</div>		
+	</div>
+	<!-- other-pharmacy-details -->
+	<div class="row hide" id="other-pharmacy-details">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_58">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="other-pharmacy-details-error"></label>
+          <h5>Please enter the name and address of your pharmacy of choice.</h5><br/>         
+			    <%= text_area_tag "Please enter the name and address of your pharmacy of choice", nil, rows: "8" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="other-pharmacy-details-btn">CONFIRM</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- user-info -->
+	<div class="row hide" id="user-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_59">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="user-info-error"></label>
+          <h5>Please provide your personal info.</h5>
+					<p>Your data is secured with 128-bit SSL and is HIPAA compliant. Only your physician will have access to your profile.</p><br/>         
+					<h5>PLEASE PROVIDE YOUR PERSONAL DETAILS</h5>
+			    <%= text_field_tag "user[first_name]", nil, placeholder: "FIRST NAME" %>
+					<%= text_field_tag "user[last_name]", nil, placeholder: "LAST NAME" %>
+					<%= text_field_tag "user[email]", nil, placeholder: "E-MAIL" %>
+					<%= text_field_tag "user[street1]", nil, placeholder: "STREET 1" %>
+					<%= text_field_tag "user[street2]", nil, placeholder: "STREET 2" %>
+					<%= text_field_tag "user[city]", nil, placeholder: "CITY" %>
+					<%= text_field_tag "user[state]", nil, placeholder: "STATE" %>
+					<%= text_field_tag "user[zip]", nil, placeholder: "ZIP CODE", maxlength: 5 %>
+					<%= text_field_tag "user[mobile_phone]", nil, placeholder: "MOBILE PHONE" %>
+					<%= text_field_tag "user[password]", nil, placeholder: "CREATE PASSWORD" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="user-info-btn">NEXT</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- user-media-info -->
+	<div class="row hide" id="user-media-info">		
+    <div class="row">
+      <div class="large-12 columns">
+        <a href="javascript:void(0)" class="left" id="backButton_61">❮</a>
+      </div>
+    </div>
+    <hr/>
+	  <div class="large-10 large-offset-1 columns">
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">
+          <label class="error" id="user-media-info-error"></label>
+          <h5>Please take a photo of yourself and ID.</h5>
+					<p>Telemedicine laws require a physician to know who they are treating. This is why we ask for a photo of you and your ID. These images are securely stored and only seen by your physician and the Roman Care Team.</p><br/>				
+					<div class="row">
+        		<div class="large-6 medium-6 columns">
+        			<%= label_tag "UPLOAD PROFILE IMAGE"%>
+							<%= file_field_tag "profile_image" %>
+        		</div>
+        		<div class="large-6 medium-6 columns">
+        			<%= label_tag "UPLOAD PHOTO ID"%>
+							<%= file_field_tag "photo_id_image"%>
+        		</div>
+        	</div>					
+					<div class="row">
+        		<div class="large-6 medium-6 columns">
+        			<div id="image_1"></div>
+        		</div>
+        		<div class="large-6 medium-6 columns">
+        			<div id="image_2"></div>
+        		</div>
+        	</div>
+        </div>
+      </div><br/>
+      <div class="row">
+        <div class="large-8 large-offset-2 columns">    		
+	    		<a href="javascript:void(0)" class="button expand round" id="user-media-info-btn">REVIEW AND ADD PAYMENT</a>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- payment info -->
+	<div id="paymentDiv"></div>	
+</form>

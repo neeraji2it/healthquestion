@@ -1,14 +1,39 @@
-<div id="dosage-preference-info" style="display: none;">
-	<a href="javascript:void(0)" class="button tiny" id="backButton_9" style="float: left;">Back</a><br/><br/><br/>
-	<p>Do you have a dosage preference for <span class="drugName"></span></p>
-	<div class="drugStrength"></div>
-	<label>$<span class="drugPrice"></span> per dose</label>
-	<p> A starting dose of <span class="drugStrength"></span> (typically $<span class="drugPrice"></span>) is usually adequate for patients who are new to the medication. Based on the information you provide, a physician will determine if this dose (or another) is appropriate.</p>
-	<a href="javascript:void(0)" class="button round" id="dosage-preference-btn">SELECT <span class="drugStrength-btn"></span> PREFERENCE</a>
-	<br/><br/>
-	<p>Select your dose if you have a different preference you’d like to share with the physician.</p>
-	<a href="javascript:void(0)" class="button round" id="dosage-preference-info-btn">SELECT DIFFERENT DOSE</a>
+<div class="row hide" id="dosage-preference-info">
+  <div class="row">
+    <div class="large-12 columns">
+      <a href="javascript:void(0)" class="left" id="backButton_9">❮</a>
+    </div>
+  </div>
+  <hr/>
+  <div class="large-10 large-offset-1 columns">
+    <div class="row">
+      <div class="large-8 large-offset-2 columns">        
+        <h5>Do you have a dosage preference for <span class="drugName"></span>?</h5><br>   
+      </div>
+    </div>  
+	  <div class="row" align="center">
+	    <div class="large-8 large-offset-2 columns">
+	      <div class="panel">
+	        <h2 class="drugStrength"></h2>
+					<p><strong><label>$<span class="drugPrice"></span> per dose</label></strong></p>
+					<p> A starting dose of <span class="drugStrength"></span> (typically $<span class="drugPrice"></span>) is usually adequate for patients who are new to the medication. Based on the information you provide, a physician will determine if this dose (or another) is appropriate.</p>
+					<div class="row">		        
+		    		<a href="javascript:void(0)" class="button expand round" id="dosage-preference-btn">SELECT <span class="drugStrength-btn"></span> PREFERENCE</a>			    	
+			    </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="row" align="center">
+	    <div class="large-8 large-offset-2 columns">
+	      <div class="panel">
+	        <p>Select your dose if you have a different preference you’d like to share with the physician.</p>
+					<div class="row">		       
+		    		<a href="javascript:void(0)" class="button expand secondary round" id="dosage-preference-info-btn">SELECT DIFFERENT DOSE</a>			  
+			    </div>
+	      </div>
+	    </div>
+	  </div>
+	</div> 
 </div>
-
-<div id="dosage-preference-list-info">	
-</div>
+<!--  dosage-preference-list-info -->
+<div id="dosage-preference-list-info"></div>

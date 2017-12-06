@@ -1,7 +1,19 @@
-<a href="javascript:void(0)" class="button tiny" id="backButton_10" style="float: left;">Back</a><br/><br/><br/>
-<p>What dose of <%= @drug_name %>?</p>
-<p>If you used the medication before, and it worked without side effects, you should choose the same dose. Otherwise start with a lower dose.</p>
-<% DRUG_PREFERENCE[@drug_name].each do |strength, price|%>
-	<label id="abc"><strong><%= strength %></strong>
-	<input type="radio" name="What dose of drug?" value="<%= price %>" drug-name="<%= @drug_name %>" class="drug-preference-list">$<%= price %> per dose<br></label>
-<% end %>
+<div class="row">
+  <div class="row">
+    <div class="large-12 columns">
+      <a href="javascript:void(0)" class="left" id="backButton_10">❮</a>
+    </div>
+  </div>
+  <hr/>
+  <div class="large-10 large-offset-1 columns">
+    <div class="row">
+      <div class="large-8 large-offset-2 columns">
+        <h5>What dose of <%= @drug_name %>?</h5>
+        <p>If you used the medication before, and it worked without side effects, you should choose the same dose. Otherwise start with a lower dose.</p>
+        <% DRUG_PREFERENCE[@drug_name].each do |strength, price|%>				
+  				<label for="drugDose"><input type="radio" name="What dose of drug?" value="<%= price %>" drug-name="<%= @drug_name %>" class="drug-preference-list"><strong> <%= strength %></strong> / $<%= price %> per dose</label><br>				
+  			<% end %>     
+      </div>
+    </div>
+  </div>
+</div>

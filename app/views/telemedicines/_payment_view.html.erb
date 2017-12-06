@@ -1,38 +1,108 @@
-<a href="javascript:void(0)" class="button tiny" id="backButton_62" style="float: left;">Back</a><br/><br/><br/>
-<h3>Review your request</h3>
-<div id="review-drug-info">
-	<p id="user-drug-preference"></p>
-	<p id="user-drug-strength"></p>
-	<p><span id="drug-quantity-per-month"></span> x per month</p>
-	<p id="drug-shipped-type"></p>
-	<% unless @total_price == "0" %>
-		<p><a href="javascript:void(0)" class="button round" id="edit-drug-info-btn">edit</a></p>
-	<% end %>
+<div class="row">		
+  <div class="row">
+    <div class="large-12 columns">
+      <a href="javascript:void(0)" class="left" id="backButton_62">❮</a>
+    </div>
+  </div>
+  <hr/>
+  <div class="large-10 large-offset-1 columns">
+    <div class="row">
+      <div class="large-8 large-offset-2 columns">        
+        <h5>Review your request</h5><br/>         
+				<div class="row" id="review-drug-info">
+      		<div class="large-4 medium-4 small-4 columns">
+      			<img class="th" src="/assets/p2.jpg" alt="your image"/>
+      		</div>
+      		<div class="large-8 medium-8 small-8 columns text-left">						
+						<h5 id="user-drug-preference"></h5>
+						<p id="user-drug-strength"></p>
+						<p><span id="drug-quantity-per-month"></span> x per month</p>
+						<p id="drug-shipped-type"></p>
+						<% unless @total_price == "0" %>
+							<p><a href="javascript:void(0)" id="edit-drug-info-btn"><strong><i class="icon-edit"></i>Edit</strong></a></p>
+						<% end %>						
+      		</div>
+      	</div>      	
+			</div>
+    </div><br>
+  	<% unless @total_price == "0" %>      		
+  		<div class="row hide" id="edit-drug-info">
+  			<div class="large-8 large-offset-2 columns">							
+					<%= select_tag "payment[drug_name]", options_for_select(DRUG_PREFERENCE.keys, @drug_name)%>
+					<div id="medication-strength">
+						<%= select_tag "payment[drug_strength]", options_for_select( DRUG_PREFERENCE[@drug_name].keys, @drug_strength)%>
+					</div>
+					<%= select_tag "payment[per_month_quantity]", options_for_select( [["4 uses per month", 4], ["6 uses per month", 6], ["8 uses per month", 8], ["10 uses per month", 10]], @per_nonth_quntity)%>
+					<%= select_tag "payment[shipped_type]", options_for_select( ["Shipped every 3 months", "Shipped every month"], @drug_shipped_type)%>
+					<p><a href="javascript:void(0)" class="button secondary expand" id="done-drug-info-btn">DONE</a></p>
+				</div>											
+  		</div><br>
+		<% end %>
+		<%= hidden_field_tag "payment[total_amount]"%>
+		<%= hidden_field_tag "payment[total_discount]"%>
+		<%= hidden_field_tag "payment[online_visit_charge]", 15%>
+		<%= hidden_field_tag "payment[final_amount]"%>
+		<%= hidden_field_tag "payment[is_selected_different_pharmacy]"%>
+		<% unless @different_pharmacy == "true"%>
+			<div class="row">
+				<div class="large-8 large-offset-2 columns">
+					<h5>IF PRESCRIBED:</h5>
+					<hr/>
+					<div class="row">
+		    		<div class="large-9 medium-9 small-9 columns text-left">
+							<p>Medication cost (monthly):</p>
+		    		</div>
+		    		<div class="large-3 medium-3 small-3 columns text-right">
+		    			<p>$<span id="total-amount"></span></p>				  		
+		    		</div>
+		    	</div>
+		    	<div class="row">
+		    		<div class="large-9 medium-9 small-9 columns text-left">							
+							<p style="color: #0dd4a7">1st Shipment Beta Offer:</p>							
+		    		</div>
+		    		<div class="large-3 medium-3 small-3 columns text-right">		    			
+				  		<p style="color: #0dd4a7"><span id="discount-amount"></span></p>				  		
+		    		</div>
+		    	</div>
+		    	<div class="row">
+		    		<div class="large-9 medium-9 small-9 columns text-left">							
+							<p>1st Shipment Total:</p>
+		    		</div>
+		    		<div class="large-3 medium-3 small-3 columns text-right">		    			
+				  		<p><span id="total-payable-amount"></span></p>
+		    		</div>
+		    	</div>
+	    	</div>
+    	</div>			 
+		<% end %>
+		<div class="row">
+			<div class="large-8 large-offset-2 columns">
+				<h5><b>DUE TODAY:</b></h5>
+				<hr/>
+				<div class="row">
+	    		<div class="large-9 medium-9 small-9 columns text-left">
+						<p><b>Online visit</b> (Read refund policy):</p>						
+	    		</div>
+	    		<div class="large-3  medium-3 small-3 columns text-right">
+	    			<p><span>$15</span></p>			  		
+	    		</div>
+	    	</div>
+    	</div>
+  	</div><br>
+  	<div class="row">
+			<div class="large-8 large-offset-2 columns">
+    		<p>ADD PAYMENT DETAILS</p>
+    	</div>
+  	</div><br>
+  	<div class="row">
+			<div class="large-8 large-offset-2 columns">
+    		<label for="tc"><%= check_box_tag "agree_term_condition" %> I AGREE TO THE TERMS OF USE AND PRIVACY POLICY.</label>
+    	</div>
+  	</div><br>	
+    <div class="row">
+      <div class="large-8 large-offset-2 columns">    		
+					<a href="javascript:void(0)" class="button expand round" id="payment-info-btn">PAY NOW</a>
+    	</div>
+    </div>
+  </div>
 </div>
-<% unless @total_price == "0" %>
-	<div id="edit-drug-info" style="display: none;">
-		<%= select_tag "payment[drug_name]", options_for_select(DRUG_PREFERENCE.keys, @drug_name)%>
-		<div id="medication-strength">
-			<%= select_tag "payment[drug_strength]", options_for_select( DRUG_PREFERENCE[@drug_name].keys, @drug_strength)%>
-		</div>
-		<%= select_tag "payment[per_month_quantity]", options_for_select( [["4 uses per month", 4], ["6 uses per month", 6], ["8 uses per month", 8], ["10 uses per month", 10]], @per_nonth_quntity)%>
-		<%= select_tag "payment[shipped_type]", options_for_select( ["Shipped every 3 months", "Shipped every month"], @drug_shipped_type)%>
-		<p><a href="javascript:void(0)" class="button round" id="done-drug-info-btn">DONE</a></p>
-	</div>
-<% end %>
-<%= hidden_field_tag "payment[total_amount]"%>
-<%= hidden_field_tag "payment[total_discount]"%>
-<%= hidden_field_tag "payment[online_visit_charge]", 15%>
-<%= hidden_field_tag "payment[final_amount]"%>
-<%= hidden_field_tag "payment[is_selected_different_pharmacy]"%>
-<% unless @different_pharmacy == "true"%>
-	<h5>IF PRESCRIBED:</h5>
-	<p>Medication cost (monthly): $<span id="total-amount"></span></p>
-	<p>1st Shipment Beta Offer:  <span id="discount-amount"></span></p>
-	<p>1st Shipment Total:  <span id="total-payable-amount"></span></p>
-<% end %>
-<h5>DUE TODAY:</h5>
-<p>Online visit (Read refund policy):  <span>$15</span></p>
-<h5>ADD PAYMENT DETAILS</h5>
-<p><%= check_box_tag "agree_term_condition" %><span>I AGREE TO THE TERMS OF USE AND PRIVACY POLICY.</span></p>
-<a href="javascript:void(0)" class="button round" id="payment-info-btn">PAY NOW</a>
