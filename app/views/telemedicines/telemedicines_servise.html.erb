@@ -116,8 +116,10 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>What's your gender?</h5><br/>
-	        <label for="genderMale"><input type="radio" name="gender" value="Male" id="gender" class="gender"><strong> Male</strong></label><br/>
-	        <label for="genderFemale"><input type="radio" name="gender" value="Female" id="gender" class="gender"><strong> Female</strong></label>
+          <div class="panel">
+		        <label for="genderMale"><input type="radio" name="gender" value="Male" id="gender" class="gender"><strong> Male</strong></label><hr/>
+		        <label for="genderFemale"><input type="radio" name="gender" value="Female" id="gender" class="gender"><strong> Female</strong></label>
+		      </div>
 	      </div>
       </div>	    
 	  </div>
@@ -135,10 +137,12 @@
         <div class="large-8 large-offset-2 columns">
           <h5>How many times do you anticipate using the medication for sexual activity, if prescribed?</h5>
           <p>The Roman Pharmacy Network can ship individual single packets for each use (i.e., dose).</p><br/>
-	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="4" class="anticipate-times"><strong> 4 uses per month</strong></label><br/>
-	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="6" class="anticipate-times"><strong> 6 uses per month</strong></label><br/>
-	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="8" class="anticipate-times"><strong> 8 uses per month</strong></label><br/>
-	        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="10" class="anticipate-times"><strong> 10 uses per month</strong></label><br/>
+          <div class="panel">
+		        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="4" class="anticipate-times"><strong> 4 uses per month</strong></label><hr />
+		        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="6" class="anticipate-times"><strong> 6 uses per month</strong></label><hr />
+		        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="8" class="anticipate-times"><strong> 8 uses per month</strong></label><hr />
+		        <label for="anticipateTimes"><input type="radio" name="How many times do you anticipate using the medication for sexual activity, if prescribed?" value="10" class="anticipate-times"><strong> 10 uses per month</strong></label>
+		      </div>
 	      </div>
       </div>	    
 	  </div>
@@ -203,11 +207,13 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>Do you have a drug preference?</h5>
-          <p>Your preference will be shared with a physician, who will use their medical judgement to determine the best treatment plan. Their decision may or may not match your preference. Prices listed are from The Roman Pharmacy Network for the recommended starting dose for a healthy patient.</p><br/>         
-	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Sildenafil" drug-price="6" class="drug-preference"><strong> Sildenafil</strong>( Sildenafil ) <strong> as low as $6 per dose</strong></label><br/>	       
-	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Viagra" drug-price="63" class="drug-preference"><strong> Sildenafil</strong>( Viagra )<strong> as low as $63 per dose</strong></label><br/>	       
-	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Cialis" drug-price="62" class="drug-preference"><strong> Tadalafil</strong>( Cialis )<strong> as low as $62 per dose</strong></label><br/>	        
-	        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Levitra" drug-price="52" class="drug-preference"><strong> Vardenafil</strong>( Levitra )<strong> as low as $52 per dose</strong></label><br/>
+          <p>Your preference will be shared with a physician, who will use their medical judgement to determine the best treatment plan. Their decision may or may not match your preference. Prices listed are from The Roman Pharmacy Network for the recommended starting dose for a healthy patient.</p><br/>
+          <div class="panel">         
+		        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Sildenafil" drug-price="6" class="drug-preference"><strong> Sildenafil</strong>( Sildenafil ) <strong> as low as $6 per dose</strong></label><hr/>	       
+		        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Viagra" drug-price="63" class="drug-preference"><strong> Sildenafil</strong>( Viagra )<strong> as low as $63 per dose</strong></label><hr/>	       
+		        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Cialis" drug-price="62" class="drug-preference"><strong> Tadalafil</strong>( Cialis )<strong> as low as $62 per dose</strong></label><hr/>	        
+		        <label for="drugPreference"><input type="radio" name="Do you have a drug preference?" value="Levitra" drug-price="52" class="drug-preference"><strong> Vardenafil</strong>( Levitra )<strong> as low as $52 per dose</strong></label>
+		      </div><br/>
 	        <div id="no-preference-div"></div>			
 					<u><b><a href="javascript:void(0)" id="no-preference-btn">Please tell the physician I don’t have a preference.</a></b></u>
 	      </div>
@@ -314,11 +320,13 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>Have you ever been treated for ED? This includes medications prescribed or purchased over the counter, and any other treatments.</h5><br/>
-          <%= hidden_field_tag "Have you ever been treated for ED?[]", nil %>
-          <label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Viagra"><strong> Viagra</strong></label><br>
-          <label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Cialis"><strong> Cialis</strong></label><br>
-  				<label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Levitra"><strong> Levitra</strong></label><br>
-  				<label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Other"><strong> Other (pumps, penile injections, penile implants, supplements, herbs, or other over-the-counter products)</strong></label>
+          <div class="panel">
+	          <%= hidden_field_tag "Have you ever been treated for ED?[]", nil %>
+	          <label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Viagra"><strong> Viagra</strong></label><hr>
+	          <label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Cialis"><strong> Cialis</strong></label><hr>
+	  				<label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Levitra"><strong> Levitra</strong></label><hr>
+	  				<label for="have-you-ever-been-treated-for-ED"><input type="checkbox" name="Have you ever been treated for ED?[]" class="have-you-ever-been-treated-for-ED" value="Other"><strong> Other (pumps, penile injections, penile implants, supplements, herbs, or other over-the-counter products)</strong></label>
+	  			</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -346,9 +354,11 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>Did you experience any serious side effect <strong>that made you stop</strong>?</h5><br/>
-          <label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, never had any side effects" class="did-you-experience-any-serious-side-effect"><strong> No, never had any side effects</strong></label><br>
-					<label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, the side effects did not make me stop" class="did-you-experience-any-serious-side-effect"><strong> No, the side effects did not make me stop</strong></label><br>
-					<label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="Yes" class="did-you-experience-any-serious-side-effect"><strong> Yes</strong></label><br>
+          <div class="panel">
+	          <label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, never had any side effects" class="did-you-experience-any-serious-side-effect"><strong> No, never had any side effects</strong></label><hr>
+						<label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="No, the side effects did not make me stop" class="did-you-experience-any-serious-side-effect"><strong> No, the side effects did not make me stop</strong></label><hr>
+						<label for="did-you-experience-any-serious-side-effect"><input type="radio" name="Did you experience any serious side effect that made you stop?" value="Yes" class="did-you-experience-any-serious-side-effect"><strong> Yes</strong></label>
+					</div><br>
 	      </div>
       </div>
 	  </div>
@@ -389,11 +399,13 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?</h5><br/>
-          <label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, every time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, every time</strong></label><br>
-					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, more than half the time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, more than half the time</strong></label><br>
-					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, on occasion" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, on occasion</strong></label><br>
-					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, but rarely" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, but rarely</strong></label><br>
-					<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="I have NO problem getting or maintaining an erection" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> I have NO problem getting or maintaining an erection</strong></label><br>
+          <div class="panel">
+	          <label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, every time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, every time</strong></label><hr>
+						<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, more than half the time" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, more than half the time</strong></label><hr>
+						<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, on occasion" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, on occasion</strong></label><hr>
+						<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="Yes, but rarely" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> Yes, but rarely</strong></label><hr>
+						<label for="stisfying-enough-for-sex"><input type="radio" name="Do you ever have a problem getting or maintainig an erection that is satisfying enough for sex?" value="I have NO problem getting or maintaining an erection" class="do-you-ever-have-a-problem-getting-an-erection-that-is-satisfying-enough-for-sex"><strong> I have NO problem getting or maintaining an erection</strong></label>
+					</div>
 	      </div>
       </div>
 	  </div>
@@ -410,10 +422,12 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>How did your ED begin? Select the one that best describes your ED.</h5><br/>
-          <label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Gradually but has worsened over time" class="how-did-your-ED-begin"><strong> Gradually but has worsened over time</strong></label><br>
-					<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly but not with a new partner" class="how-did-your-ED-begin"><strong> Suddenly but not with a new partner</strong></label><br>
-					<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly with a new partner" class="how-did-your-ED-begin"><strong> Suddenly with a new partner</strong></label><br>
-					<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="I do not recall how it begin" class="how-did-your-ED-begin"><strong> I do not recall how it begin</strong></label><br>
+          <div class="panel">
+	          <label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Gradually but has worsened over time" class="how-did-your-ED-begin"><strong> Gradually but has worsened over time</strong></label><hr>
+						<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly but not with a new partner" class="how-did-your-ED-begin"><strong> Suddenly but not with a new partner</strong></label><hr>
+						<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="Suddenly with a new partner" class="how-did-your-ED-begin"><strong> Suddenly with a new partner</strong></label><hr>
+						<label for="how-did-your-ED-begin"><input type="radio" name="How did your ED begin? Select the one that best describes your ED" value="I do not recall how it begin" class="how-did-your-ED-begin"><strong> I do not recall how it begin</strong></label>
+					</div>
 	      </div>
       </div>
 	  </div>
@@ -430,9 +444,11 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>Do you get erections:</h5><br/>
-          <%= hidden_field_tag "Do you get erections?[]", nil %>
-          <label for="do-you-get-erections"><input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When masturbating"><strong> When masturbating</strong></label><br>
-					<label for="do-you-get-erections"><input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When you wake up"><strong> When you wake up</strong></label><br>
+          <div class="panel">
+	          <%= hidden_field_tag "Do you get erections?[]", nil %>
+	          <label for="do-you-get-erections"><input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When masturbating"><strong> When masturbating</strong></label><hr>
+						<label for="do-you-get-erections"><input type="checkbox" name="Do you get erections?[]" class="do-you-get-erections" value="When you wake up"><strong> When you wake up</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -505,8 +521,10 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>You need to know blood pressure (BP) within the last 6 months to receive treatment. It is an important factor in deciding whether it is safe for you to use ED medication. It is essential that you are accurate and honest about your BP. When used improperly these medicationscan cause serious harm, or death. Do not proceed if you do not know your BP.</h5><br/>
-          <label for="blood-pressure"><input type="radio" name="Have you know your blood pressure?" value="Continue, I know my blood pressure" class="blood-pressure"><strong> Continue, I know my blood pressure.</strong></label><br>
-					<label for="blood-pressure"><input type="radio" name="Have you know your blood pressure?" value="I Do not know my blood pressure" class="blood-pressure"><strong> I Do not know my blood pressure</strong></label><br>
+          <div class="panel">
+	          <label for="blood-pressure"><input type="radio" name="Have you know your blood pressure?" value="Continue, I know my blood pressure" class="blood-pressure"><strong> Continue, I know my blood pressure.</strong></label><hr>
+						<label for="blood-pressure"><input type="radio" name="Have you know your blood pressure?" value="I Do not know my blood pressure" class="blood-pressure"><strong> I Do not know my blood pressure</strong></label>
+					</div>
 	      </div>
       </div>
 	  </div>
@@ -547,11 +565,13 @@
         <div class="large-8 large-offset-2 columns">
           <h5>What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?</h5>
           <p>When a healthcare provider measures your blood pressure they will state the result as one higher number over another lower number (e.g., 120/80). The top number is called the systolic pressure and measures how high your blood pressure reaches when the heart contracts fully.</p><br/>
-          <label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="95-120" class="top-blood-pressure-reading"><strong> 95-120</strong></label><br>
-					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="120-139" class="top-blood-pressure-reading"><strong> 120-139</strong></label><br>
-					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="140-159" class="top-blood-pressure-reading"><strong> 140-159</strong></label><br>
-					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="160 or higher" class="top-blood-pressure-reading"><strong> 160 or higher</strong></label><br>
-					<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="Less than 95" class="top-blood-pressure-reading"><strong> Less than 95</strong></label><br>
+          <div class="panel">
+	          <label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="95-120" class="top-blood-pressure-reading"><strong> 95-120</strong></label><hr>
+						<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="120-139" class="top-blood-pressure-reading"><strong> 120-139</strong></label><hr>
+						<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="140-159" class="top-blood-pressure-reading"><strong> 140-159</strong></label><hr>
+						<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="160 or higher" class="top-blood-pressure-reading"><strong> 160 or higher</strong></label><hr>
+						<label for="top-blood-pressure-reading"><input type="radio" name="What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?" value="Less than 95" class="top-blood-pressure-reading"><strong> Less than 95</strong></label>
+					</div>
 	      </div>
       </div>
 	  </div>
@@ -569,11 +589,13 @@
         <div class="large-8 large-offset-2 columns">
           <h5>What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?</h5>
           <p>The bottom number is called the diastolic pressure and measures how low your blood pressure goes when the heart is most relaxed.</p><br/>
-          <label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="65-80" class="bottom-blood-pressure-reading"><strong> 65-80</strong></label><br>
-					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="80-90" class="bottom-blood-pressure-reading"><strong> 80-90</strong></label><br>
-					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="90-100" class="bottom-blood-pressure-reading"><strong> 90-100</strong></label><br>
-					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Over 100" class="bottom-blood-pressure-reading"><strong> Over 100</strong></label><br>
-					<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Less than 65" class="bottom-blood-pressure-reading"><strong> Less than 65</strong></label><br>
+          <div class="panel">
+	          <label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="65-80" class="bottom-blood-pressure-reading"><strong> 65-80</strong></label><hr>
+						<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="80-90" class="bottom-blood-pressure-reading"><strong> 80-90</strong></label><hr>
+						<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="90-100" class="bottom-blood-pressure-reading"><strong> 90-100</strong></label><hr>
+						<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Over 100" class="bottom-blood-pressure-reading"><strong> Over 100</strong></label><hr>
+						<label for="bottom-blood-pressure-reading"><input type="radio" name="What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?" value="Less than 65" class="bottom-blood-pressure-reading"><strong> Less than 65</strong></label>
+					</div>
 	      </div>
       </div>
 	  </div>
@@ -591,8 +613,10 @@
         <div class="large-8 large-offset-2 columns">
           <h5>Please confirm your blood pressure reading within the last 6 months was</h5><br/>
           <h3><span class="top-bp-reading"></span> / <span class="bottom-bp-reading"></span> mmHg</h3><br/>
-         	<label for="confirm-blood-pressure-reading"><input type="radio" name="Please confirm your blood pressure reading" value="Yes, that is my blood pressure" class="confirm-blood-pressure-reading"><strong> Yes, that is my blood pressure</strong></label><br>
-					<label for="confirm-blood-pressure-reading"><input type="radio" name="Please confirm your blood pressure reading" value="No, go back and let me re-enter it" class="confirm-blood-pressure-reading"><strong> No, go back and let me re-enter it</strong></label><br>
+          <div class="panel">
+	         	<label for="confirm-blood-pressure-reading"><input type="radio" name="Please confirm your blood pressure reading" value="Yes, that is my blood pressure" class="confirm-blood-pressure-reading"><strong> Yes, that is my blood pressure</strong></label><hr>
+						<label for="confirm-blood-pressure-reading"><input type="radio" name="Please confirm your blood pressure reading" value="No, go back and let me re-enter it" class="confirm-blood-pressure-reading"><strong> No, go back and let me re-enter it</strong></label>
+					</div>
 	      </div>
       </div>
 	  </div>
@@ -608,12 +632,14 @@
 	  <div class="large-10 large-offset-1 columns">
       <div class="row">
         <div class="large-8 large-offset-2 columns">
-          <h5>Which of the following best describes your libido (your desire to have sex)? My desire to have sex is:</h5><br/>          
-         	<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was" class="describes-your-libido"><strong> Less than it was</strong></label><br>
-					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was because I know I have trouble with erections" class="describes-your-libido"><strong> Less than it was because I know I have trouble with erections</strong></label><br>
-					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less and it started before I had trouble with erections" class="describes-your-libido"><strong> Less and it started before I had trouble with erections</strong></label><br>
-					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less but I don't know which came first (less desire or trouble with erections)" class="describes-your-libido"><strong> Less but I don't know which came first (less desire or trouble with erections)</strong></label><br>
-					<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Unchanged" class="describes-your-libido"><strong> Unchanged</strong></label><br>
+          <h5>Which of the following best describes your libido (your desire to have sex)? My desire to have sex is:</h5><br/>
+          <div class="panel">
+	         	<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was" class="describes-your-libido"><strong> Less than it was</strong></label><hr>
+						<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less than it was because I know I have trouble with erections" class="describes-your-libido"><strong> Less than it was because I know I have trouble with erections</strong></label><hr>
+						<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less and it started before I had trouble with erections" class="describes-your-libido"><strong> Less and it started before I had trouble with erections</strong></label><hr>
+						<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Less but I don't know which came first (less desire or trouble with erections)" class="describes-your-libido"><strong> Less but I don't know which came first (less desire or trouble with erections)</strong></label><hr>
+						<label for="describes-your-libido"><input type="radio" name="Which of the following best describes your libido (your desire to have sex)?" value="Unchanged" class="describes-your-libido"><strong> Unchanged</strong></label>
+					</div>
 	      </div>
       </div>
 	  </div>
@@ -640,17 +666,19 @@
         <div class="large-8 large-offset-2 columns">
           <h5>Do you have any of the following conditions? Select all that apply.</h5>
           <p>Some cases of ED are best managed by a healthcare provider you visit in person.</p><br/>
-          <%= hidden_field_tag "Do you get erections?[]", nil %>
-          <label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="For health reasons, or any reason, you have been advised not to have sex"><strong> For health reasons, or any reason, you have been advised not to have sex</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="HIV"><strong> HIV</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Severe low blood pressure"><strong> Severe low blood pressure</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="A prior heart attack, heart failure, or narrowing of the arteries"><strong> A prior heart attack, heart failure, or narrowing of the arteries</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any clotting or bleeding disorder"><strong> Any clotting or bleeding disorder</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Stroke or severe insufficiency of the autonomic nervous system"><strong> Stroke or severe insufficiency of the autonomic nervous system</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any history of QT prolongation in you, or even your family"><strong> Any history of QT prolongation in you, or even your family</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Sickle cell anemia, myeloma, or leukemia"><strong> Sickle cell anemia, myeloma, or leukemia</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Retinitis pigmentosa or anterior ischemic optic neuropath"><strong> Retinitis pigmentosa or anterior ischemic optic neuropath</strong></label><br>
-					<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Idiopathic hypertrophic subaortic stenosis"><strong> Idiopathic hypertrophic subaortic stenosis</strong></label><br>
+          <div class="panel">
+	          <%= hidden_field_tag "Do you get erections?[]", nil %>
+	          <label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="For health reasons, or any reason, you have been advised not to have sex"><strong> For health reasons, or any reason, you have been advised not to have sex</strong></label><hr>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="HIV"><strong> HIV</strong></label><hr>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Severe low blood pressure"><strong> Severe low blood pressure</strong></label><hr>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="A prior heart attack, heart failure, or narrowing of the arteries"><strong> A prior heart attack, heart failure, or narrowing of the arteries</strong></label><hr>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any clotting or bleeding disorder"><strong> Any clotting or bleeding disorder</strong></label><br>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Stroke or severe insufficiency of the autonomic nervous system"><strong> Stroke or severe insufficiency of the autonomic nervous system</strong></label><hr>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Any history of QT prolongation in you, or even your family"><strong> Any history of QT prolongation in you, or even your family</strong></label><hr>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Sickle cell anemia, myeloma, or leukemia"><strong> Sickle cell anemia, myeloma, or leukemia</strong></label><br>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Retinitis pigmentosa or anterior ischemic optic neuropath"><strong> Retinitis pigmentosa or anterior ischemic optic neuropath</strong></label><hr>
+						<label for="select-ED-conditions"><input type="checkbox" name="Do you have any of the following conditions? Select all that apply[]" class="select-ED-conditions" value="Idiopathic hypertrophic subaortic stenosis"><strong> Idiopathic hypertrophic subaortic stenosis</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -672,11 +700,13 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>Do you have any of these conditions? Select all that apply.</h5><br/>
-          <%= hidden_field_tag "Do you have any of the following conditions?[]", nil %>
-					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A marked curve or bend in the penis that interferes with sex, or Peyronie's disease"><strong> A marked curve or bend in the penis that interferes with sex, or Peyronie's disease</strong></label><br>
-					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Pain with erections or with ejaculation"><strong> Pain with erections or with ejaculation</strong></label><br>
-					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A foreskin that is too tight"><strong> A foreskin that is too tight</strong></label><br>
-					<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)"><strong> Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)</strong></label><br>
+          <div class="panel">
+	          <%= hidden_field_tag "Do you have any of the following conditions?[]", nil %>
+						<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A marked curve or bend in the penis that interferes with sex, or Peyronie's disease"><strong> A marked curve or bend in the penis that interferes with sex, or Peyronie's disease</strong></label><hr>
+						<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Pain with erections or with ejaculation"><strong> Pain with erections or with ejaculation</strong></label><hr>
+						<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="A foreskin that is too tight"><strong> A foreskin that is too tight</strong></label><hr>
+						<label for="select-conditions"><input type="checkbox" name="Do you have any of the following conditions?[]" class="select-conditions" value="Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)"><strong> Fibrous tissue in the penis (lumps and bumps under the skin that feels hard)</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -698,13 +728,15 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.</h5><br/>
-          <%= hidden_field_tag "ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]", nil %>
-					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not get as much exercise as I should"><strong> I do not get as much exercise as I should</strong></label><br>
-					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not eat as healthfully as I should"><strong> I do not eat as healthfully as I should</strong></label><br>
-					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="Smoke tobacco"><strong> Smoke tobacco</strong></label><br>
-					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I drink more than I should (greater than 2 drinks/day)"><strong> I drink more than I should (greater than 2 drinks/day)</strong></label><br>
-					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not sleep as much as I should"><strong> I do not sleep as much as I should</strong></label><br>
-					<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I'm 20+ lbs overweight"><strong> I'm 20+ lbs overweight</strong></label><br>					
+          <div class="panel">
+	          <%= hidden_field_tag "ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]", nil %>
+						<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not get as much exercise as I should"><strong> I do not get as much exercise as I should</strong></label><hr>
+						<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not eat as healthfully as I should"><strong> I do not eat as healthfully as I should</strong></label><hr>
+						<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="Smoke tobacco"><strong> Smoke tobacco</strong></label><hr>
+						<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I drink more than I should (greater than 2 drinks/day)"><strong> I drink more than I should (greater than 2 drinks/day)</strong></label><hr>
+						<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I do not sleep as much as I should"><strong> I do not sleep as much as I should</strong></label><hr>
+						<label for="lifestyle-habits"><input type="checkbox" name="ED can be caused by underlying health problems. Sometimes, it is the result of our lifestyle habits.[]" class="lifestyle-habits" value="I'm 20+ lbs overweight"><strong> I'm 20+ lbs overweight</strong></label>
+					</div>		
 	      </div>
       </div><br/>
       <div class="row">
@@ -726,14 +758,16 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">
           <h5>To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions. Check all that apply.</h5><br/>
-          <%= hidden_field_tag "To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]", nil %>
-					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Surgery or radiation to the prostate or pelvis"><strong> Surgery or radiation to the prostate or pelvis</strong></label><br>
-					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Kidney transplant or any condition affecting the kidney"><strong> Kidney transplant or any condition affecting the kidney</strong></label><br>
-					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Liver disease"><strong> Liver disease</strong></label><br>
-					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases"><strong> Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases</strong></label><br>
-					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Stomach, intestinal, or bowel ulcers"><strong> Stomach, intestinal, or bowel ulcers</strong></label><br>
-					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Heart arrhythmias, which is an abnormal beating of the heart"><strong> Heart arrhythmias, which is an abnormal beating of the heart</strong></label><br>
-					<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs"><strong> Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs</strong></label><br>	
+          <div class="panel">
+	          <%= hidden_field_tag "To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]", nil %>
+						<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Surgery or radiation to the prostate or pelvis"><strong> Surgery or radiation to the prostate or pelvis</strong></label><hr>
+						<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Kidney transplant or any condition affecting the kidney"><strong> Kidney transplant or any condition affecting the kidney</strong></label><hr>
+						<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Liver disease"><strong> Liver disease</strong></label><hr>
+						<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases"><strong> Multiple sclerosis (MS) or similar disease, spinal injuries or paralysis, or neurological diseases</strong></label><hr>
+						<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Stomach, intestinal, or bowel ulcers"><strong> Stomach, intestinal, or bowel ulcers</strong></label><hr>
+						<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Heart arrhythmias, which is an abnormal beating of the heart"><strong> Heart arrhythmias, which is an abnormal beating of the heart</strong></label><hr>
+						<label for="both-effective-and-safe-dosages-of-medication-conditions"><input type="checkbox" name="To provide both effective and safe dosages of medication, if appropriate, we need to know if you have now, or have ever had, any of the following conditions.[]" class="both-effective-and-safe-dosages-of-medication-conditions" value="Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs"><strong> Any acquired, congenital, or developmental abnormalities of the heart including heart murmurs</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -756,11 +790,13 @@
         <div class="large-8 large-offset-2 columns">
           <h5>People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.</h5>
           <h5>Do you have any of the following symptoms?</h5><br/>
-          <%= hidden_field_tag "People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
-					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)"><strong> Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)</strong></label><br>
-					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Chest pain (angina) or shortness of breath while walking up 2 flights of stairs"><strong> Chest pain (angina) or shortness of breath while walking up 2 flights of stairs</strong></label><br>
-					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Any episodes of unexplained fainting, lightheadedness, or dizziness"><strong> Any episodes of unexplained fainting, lightheadedness, or dizziness</strong></label><br>
-					<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)"><strong> Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)</strong></label><br>
+          <div class="panel">
+	          <%= hidden_field_tag "People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
+						<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)"><strong> Abnormal heart beats—rapid, irregular, unusually slow (fewer than 60 beats/minute)</strong></label><hr>
+						<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Chest pain (angina) or shortness of breath while walking up 2 flights of stairs"><strong> Chest pain (angina) or shortness of breath while walking up 2 flights of stairs</strong></label><hr>
+						<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Any episodes of unexplained fainting, lightheadedness, or dizziness"><strong> Any episodes of unexplained fainting, lightheadedness, or dizziness</strong></label><hr>
+						<label for="symptoms-options"><input type="checkbox" name="People with ED may have hardening of the arteries, which can cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options" value="Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)"><strong> Other than regular muscle soreness with exercise, cramping or pain in the calves or thighs (claudication)</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -783,12 +819,14 @@
         <div class="large-8 large-offset-2 columns">
           <h5>People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.</h5>
 					<h5>Do any of the following apply to you?</h5><br/>
-         	<%= hidden_field_tag "People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
-					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High cholesterol"><strong> High cholesterol</strong></label><br>
-					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My father had a heart attack or heart disease at 55 years or younger"><strong> My father had a heart attack or heart disease at 55 years or younger</strong></label><br>
-					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My mother had a heart attack or heart disease at 65 years or younger"><strong> My mother had a heart attack or heart disease at 65 years or younger</strong></label><br>
-					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="Diabetes"><strong> Diabetes</strong></label><br>
-					<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High blood pressure"><strong> High blood pressure</strong></label><br>
+					<div class="panel">
+	         	<%= hidden_field_tag "People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]", nil %>
+						<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High cholesterol"><strong> High cholesterol</strong></label><hr>
+						<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My father had a heart attack or heart disease at 55 years or younger"><strong> My father had a heart attack or heart disease at 55 years or younger</strong></label><hr>
+						<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="My mother had a heart attack or heart disease at 65 years or younger"><strong> My mother had a heart attack or heart disease at 65 years or younger</strong></label><hr>
+						<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="Diabetes"><strong> Diabetes</strong></label><hr>
+						<label for="symptoms-options-2"><input type="checkbox" name="People with ED may have hardening of the arteries, which may cause difficulties with erections even before it affects the heart and causes heart attacks.[]" class="symptoms-options-2" value="High blood pressure"><strong> High blood pressure</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -810,13 +848,15 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">         
 					<h5><strong>Death can result</strong> if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used...</h5><br/>
-         	<%= hidden_field_tag "Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]", nil %>
-					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Medicine containing nitrates"><strong> Medicine containing nitrates</strong></label><br>
-					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin)."><strong> Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin).</strong></label><br>
-					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro"><strong> Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro</strong></label><br>
-					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Sildenafil (Revatio) used to treat pulmonary hypertension"><strong> Sildenafil (Revatio) used to treat pulmonary hypertension</strong></label><br>
-					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)"><strong> Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)</strong></label><br>
-					<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Adempas (Riociquat), which is used to treat pulmonary hypertension"><strong> Adempas (Riociquat), which is used to treat pulmonary hypertension</strong></label><br>
+					<div class="panel">
+	         	<%= hidden_field_tag "Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]", nil %>
+						<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Medicine containing nitrates"><strong> Medicine containing nitrates</strong></label><hr>
+						<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin)."><strong> Any medication called an alpha blocker. They are used high blood pressure or prostate problems. Including Cardura (doxazosin), Coreg (carvedilol), Flomax (tamsulosin), Hytrin (terazosin), Minipress (prazosin), Rapaflo (silodosin), Regitine or Oraverse (phentolamine), Trandate (labetalol), Uraxatral (alfuzosin).</strong></label><hr>
+						<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro"><strong> Nitroglycerin in any form—as a spray, tablet, patch or ointment! Names include: Deponit, Minitran, Nitrek, Nitro-Bid, Nitrocot, Nitrodisc, Nitro-Dur, Nitrogard, Nitroglyn, Nitrol, Nitrolingua, Nitrolingual, NitroMist, Nitrong, Nitronol, Nitro-Par, Nitroquick, Nitrostat, Nitrotab, Nitro-Time, Transdermal-Nitro</strong></label><hr>
+						<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Sildenafil (Revatio) used to treat pulmonary hypertension"><strong> Sildenafil (Revatio) used to treat pulmonary hypertension</strong></label><hr>
+						<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)"><strong> Isosorbide mononitrate or Isosorbide dinitrate. (Dilatrate, Dilatrate–SR, Imdur, Ismo, Isordil, Monoket, Sorbitrate)</strong></label><hr>
+						<label for="conjunction-with-other-medication-info"><input type="checkbox" name="Death can result if ED meds are used in conjunction with other medications. Please, be accurate. I use or have used[]" class="conjunction-with-other-medication-info" value="Adempas (Riociquat), which is used to treat pulmonary hypertension"><strong> Adempas (Riociquat), which is used to treat pulmonary hypertension</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -839,8 +879,10 @@
         <div class="large-8 large-offset-2 columns">
           <h5>Death can result if ED meds are used in conjunction with recreational drugs.</h5>
 					<h5>Have you, or are you currently using, Poppers, Rush, amyl nitrate, butyl nitrate, or other recreational drugs (excluding medical marijuana)?</h5><br/>
-         	<label for="conjunction-with-other-recreational-drugs-info"><input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="No" class="conjunction-with-other-recreational-drugs-info"><strong> No</strong></label><br>
-					<label for="conjunction-with-other-recreational-drugs-info"><input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="Yes" class="conjunction-with-other-recreational-drugs-info"><strong> Yes</strong></label><br>
+					<div class="panel">
+	         	<label for="conjunction-with-other-recreational-drugs-info"><input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="No" class="conjunction-with-other-recreational-drugs-info"><strong> No</strong></label><hr>
+						<label for="conjunction-with-other-recreational-drugs-info"><input type="radio" name="Death can result if ED meds are used in conjunction with recreational drugs" value="Yes" class="conjunction-with-other-recreational-drugs-info"><strong> Yes</strong></label>
+					</div>
 	      </div>
       </div>      	    
 	  </div>
@@ -857,8 +899,10 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">          
 					<h5>Are you taking any other medicines (e.g., erythromycin, antifungals) or over the counter medicines (e.g. allergy medications, pain relievers, herbs, vitamins, other supplements)?</h5><br/>
-         	<label for="are-you-taking-any-other-medicines"><input type="radio" name="Are you taking any other medicines?" value="No" class="are-you-taking-any-other-medicines"><strong> No</strong></label><br>
-					<label for="are-you-taking-any-other-medicines"><input type="radio" name="Are you taking any other medicines?" value="Yes" class="are-you-taking-any-other-medicines"><strong> Yes</strong></label><br>
+					<div class="panel">
+	         	<label for="are-you-taking-any-other-medicines"><input type="radio" name="Are you taking any other medicines?" value="No" class="are-you-taking-any-other-medicines"><strong> No</strong></label><hr>
+						<label for="are-you-taking-any-other-medicines"><input type="radio" name="Are you taking any other medicines?" value="Yes" class="are-you-taking-any-other-medicines"><strong> Yes</strong></label>
+					</div>
 	      </div>
       </div>      	    
 	  </div>
@@ -899,8 +943,10 @@
         <div class="large-8 large-offset-2 columns">          
 					<h5>Do you have any allergies to food, dyes, medication, or anything else?</h5>
 					<p>Be sure to include any allergies to galactose, phenylalanine, or to any ED medicines, including but not limited to: avanafil (Stendra), sildenafil (Revatio / Viagra), tadalfil (Cialis), and vardenafil (Levitra, Staxyn).</p><br/>
-   				<label for="allergies-info"><input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="No, I do not have any allergies to food, dyes, or medication" class="allergies-info"><strong> No, I do not have any allergies to food, dyes, or medication.</strong></label><br>
-					<label for="allergies-info"><input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="Yes I have allergies" class="allergies-info"><strong> Yes I have allergies</strong></label><br>
+					<div class="panel">
+	   				<label for="allergies-info"><input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="No, I do not have any allergies to food, dyes, or medication" class="allergies-info"><strong> No, I do not have any allergies to food, dyes, or medication.</strong></label><hr>
+						<label for="allergies-info"><input type="radio" name="Do you have any allergies to food, dyes, medication, or anything else?" value="Yes I have allergies" class="allergies-info"><strong> Yes I have allergies</strong></label>
+					</div>
 	      </div>
       </div>      	    
 	  </div>
@@ -949,11 +995,13 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">          
 					<h5>In the last 3 weeks, have you been troubled by:</h5><br/>
-   				<%= hidden_field_tag "In the last 3 weeks, have you been troubled by[]", nil %>
-					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="little interest or pleasure in doing things"><strong> little interest or pleasure in doing things</strong></label><br>
-					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling down, depressed, or hopeless"><strong> feeling down, depressed, or hopeless</strong></label><br>
-					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)"><strong> feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)</strong></label><br>
-					<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="worrying too much about different things (enough that it impairs your ability to function at work or at home)"><strong> worrying too much about different things (enough that it impairs your ability to function at work or at home)</strong></label><br>
+					<div class="panel">
+	   				<%= hidden_field_tag "In the last 3 weeks, have you been troubled by[]", nil %>
+						<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="little interest or pleasure in doing things"><strong> little interest or pleasure in doing things</strong></label><hr>
+						<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling down, depressed, or hopeless"><strong> feeling down, depressed, or hopeless</strong></label><hr>
+						<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)"><strong> feeling nervous, anxious, or on edge (enough that it impairs your ability to function at work or at home)</strong></label><hr>
+						<label for="have-you-been-troubled-info"><input type="checkbox" name="In the last 3 weeks, have you been troubled by[]" class="have-you-been-troubled-info" value="worrying too much about different things (enough that it impairs your ability to function at work or at home)"><strong> worrying too much about different things (enough that it impairs your ability to function at work or at home)</strong></label>
+					</div>
 	      </div>
       </div><br/>
       <div class="row">
@@ -998,9 +1046,11 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">          
 					<h5>How often have you been troubled?</h5><br/>
-   				<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="Several Days" class="how-often-have-you-been-troubled-info"><strong> Several Days</strong></label><br>
-					<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="More than half of the days" class="how-often-have-you-been-troubled-info"><strong> More than half of the days</strong></label><br>
-					<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="Nearly every day" class="how-often-have-you-been-troubled-info"><strong> Nearly every day</strong></label><br>
+					<div class="panel">
+	   				<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="Several Days" class="how-often-have-you-been-troubled-info"><strong> Several Days</strong></label><hr>
+						<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="More than half of the days" class="how-often-have-you-been-troubled-info"><strong> More than half of the days</strong></label><hr>
+						<label for="how-often-have-you-been-troubled-info"><input type="radio" name="How often have you been troubled?" value="Nearly every day" class="how-often-have-you-been-troubled-info"><strong> Nearly every day</strong></label>
+					</div>
 	      </div>
       </div>      	    
 	  </div>
@@ -1017,8 +1067,10 @@
       <div class="row">
         <div class="large-8 large-offset-2 columns">          
 					<h5>Is there anything else we should know?</h5><br/>
-   				<label for="is-there-anything-else-we-should-know-info"><input type="radio" name="Is there anything else we should know?" value="No" class="is-there-anything-else-we-should-know-info"><strong> No</strong></label><br>
-					<label for="is-there-anything-else-we-should-know-info"><input type="radio" name="Is there anything else we should know?" value="Yes" class="is-there-anything-else-we-should-know-info"><strong> Yes</strong></label><br>
+					<div class="panel">
+	   				<label for="is-there-anything-else-we-should-know-info"><input type="radio" name="Is there anything else we should know?" value="No" class="is-there-anything-else-we-should-know-info"><strong> No</strong></label><hr>
+						<label for="is-there-anything-else-we-should-know-info"><input type="radio" name="Is there anything else we should know?" value="Yes" class="is-there-anything-else-we-should-know-info"><strong> Yes</strong></label>
+					</div>
 	      </div>
       </div>      	    
 	  </div>
@@ -1203,7 +1255,7 @@
         </div>
       </div><br/>
       <div class="row">
-        <div class="large-8 large-offset-2 columns">    		
+        <div class="large-7 large-offset-2 columns">    		
 	    		<a href="javascript:void(0)" class="button expand round" id="user-media-info-btn">REVIEW AND ADD PAYMENT</a>
 	    	</div>
 	    </div>
