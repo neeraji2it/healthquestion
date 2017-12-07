@@ -148,6 +148,7 @@ $('#backButton_21').click(function(){
 	$("#explain-other-treatment_levitra").show();
 	$('#backButton_23').hide();
 	$('#backButton_22').hide();
+	$("input[name='Did you experience any serious side effect that made you stop?']:checked").prop('checked', false);
 });
 
 $('#backButton_22').click(function(){
@@ -155,6 +156,7 @@ $('#backButton_22').click(function(){
 	$("#explain-other-treatment_cialis").show();	
 	$('#backButton_21').hide();
 	$('#backButton_23').hide();
+	$("input[name='Did you experience any serious side effect that made you stop?']:checked").prop('checked', false);
 });
 
 $('#backButton_23').click(function(){
@@ -162,6 +164,7 @@ $('#backButton_23').click(function(){
 	$("#explain-other-treatment_viagra").show();	
 	$('#backButton_21').hide();
 	$('#backButton_22').hide();
+	$("input[name='Did you experience any serious side effect that made you stop?']:checked").prop('checked', false);
 });
 
 function checkMedication(data) {		
@@ -192,6 +195,7 @@ $('#backButton_60').click(function(){
 	$('#explain-the-side-effects').hide();
 	$('#did-you-experience-any-serious-side-effect').show();
 	$("#explain-the-side-effects-error").html("");
+	$("#Please_explain_the_side_effects").val("");
 });
 
 $('#backButton_24').click(function(){
