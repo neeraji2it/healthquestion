@@ -10,9 +10,14 @@
       <div class="large-8 large-offset-2 columns">
         <h5>What dose of <%= @drug_name %>?</h5>
         <p>If you used the medication before, and it worked without side effects, you should choose the same dose. Otherwise start with a lower dose.</p>
-        <% DRUG_PREFERENCE[@drug_name].each do |strength, price|%>				
-  				<label for="drugDose"><input type="radio" name="What dose of drug?" value="<%= price %>" drug-name="<%= @drug_name %>" class="drug-preference-list"><strong> <%= strength %></strong> / $<%= price %> per dose</label><br>				
-  			<% end %>     
+        <div class="panel">
+          <% count = 0 %>
+          <% DRUG_PREFERENCE[@drug_name].each do |strength, price|%>            
+            <%= raw "<hr>" unless count == 0 %>
+            <% count += 1 %>
+    				<label for="drugDose"><input type="radio" name="What dose of drug?" value="<%= price %>" drug-name="<%= @drug_name %>" class="drug-preference-list"><strong> <%= strength %></strong> / $<%= price %> per dose</label>
+    			<% end %>
+        </div>
       </div>
     </div>
   </div>

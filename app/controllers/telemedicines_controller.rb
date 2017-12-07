@@ -16,8 +16,15 @@ class TelemedicinesController < ApplicationController
     else
       @is_selected_different_pharmacy = params[:payment].present? ? params[:payment][:is_selected_different_pharmacy] : nil
       @telemedicine = Telemedicine.create(email: params[:email], telemedicine_law: params[:telemedicine_law], zip_code: params[:zip_code], gender: params[:gender], dob: @dob,have_you_had_a_physical_exam_with_a_healthcare_provider: params["Have you had a physical exam with a healthcare provider in the past five years?"], have_you_know_your_blood_pressure: params["Have you know your blood pressure?"], profile_image: params[:profile_image], photo_id_image: params[:photo_id_image], do_you_have_a_drug_preference: params["Do you have a drug preference?"], is_selected_different_pharmacy: @is_selected_different_pharmacy)
+
       params.delete("profile_image")
       params.delete("photo_id_image")
+      params.delete("female")
+      if @telemedicine.have_you_had_a_physical_exam_with_a_healthcare_provider == "No" or @telemedicine.have_you_know_your_blood_pressure == "I Do not know my blood pressure"
+        params.delete("user")
+        params.delete("payment")
+      end
+      
       @telemedicine = @telemedicine.update_attributes(json_data: params)
     end    
     render :json => true

@@ -79,7 +79,8 @@ $('#backButton_32').click(function(){
 $('#backButton_33').click(function(){
 	$('#explain-your-exam').hide();
 	$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();
-	$("#explain-your-exam-error").html("");	
+	$("#explain-your-exam-error").html("");
+	$("#Please_explain_your_exam_in_more_detail").val("");	
 });
 
 $('#backButton_34').click(function(){
@@ -89,6 +90,7 @@ $('#backButton_34').click(function(){
 	}else{
 		$('#have-you-had-a-physical-exam-with-a-healtcare-provider').show();
 	}
+	$("input[name='Have you know your blood pressure?']:checked").prop('checked', false);
 });
 
 $("#explain-your-exam-btn").click(function(){

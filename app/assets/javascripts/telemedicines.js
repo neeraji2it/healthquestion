@@ -375,6 +375,7 @@ $(document).ready(function(){
 			$('#blood-pressure').show();
 		}
 		resetBP = false;
+		$("input[name='What is the top number of your blood pressure reading (i.e., systolic reading) taken in the last 6 months?']:checked").prop('checked', false);
 	});
 
 	$('#email-info3-btn').click(function(){
@@ -403,6 +404,7 @@ $(document).ready(function(){
 	$('#backButton_37').click(function(){
 		$('#bottom-blood-pressure-reading').hide();
 		$('#top-blood-pressure-reading').show();
+		$("input[name='What is the bottom number of your blood pressure reading (i.e., diastolic reading) taken in the last 6 months?']:checked").prop('checked', false);
 	});
 
 	$('.bottom-blood-pressure-reading').click(function(){
@@ -414,6 +416,7 @@ $(document).ready(function(){
 	$('#backButton_38').click(function(){
 		$('#confirm-blood-pressure-reading').hide();
 		$('#bottom-blood-pressure-reading').show();
+		$("input[name='Please confirm your blood pressure reading']:checked").prop('checked', false);
 	});
 
 	$('.confirm-blood-pressure-reading').click(function(){
@@ -429,6 +432,7 @@ $(document).ready(function(){
 	$('#backButton_39').click(function(){
 		$('#describes-your-libido').hide();
 		$('#confirm-blood-pressure-reading').show();
+		$("input[name='Which of the following best describes your libido (your desire to have sex)?']:checked").prop('checked', false);
 	});
 
 	$('.describes-your-libido').click(function(){
@@ -448,6 +452,8 @@ $(document).ready(function(){
 	$('#backButton_40').click(function(){
 		$('#select-ED-conditions').hide();
 		$('#describes-your-libido').show();
+		$(".select-ED-conditions").prop('checked', false);
+		$('#select-ED-conditions-btn').text("NONE APPLY");
 	});
 
 	$(".select-ED-conditions").change(function(){
@@ -472,6 +478,8 @@ $(document).ready(function(){
 	$('#backButton_41').click(function(){
 		$('#select-conditions').hide();
 		$('#select-ED-conditions').show();
+		$(".select-conditions").prop('checked', false);
+		$('#select-conditions-btn').text("NONE OF THE ABOVE");
 	});
 
 	$(".select-conditions").change(function(){
@@ -496,6 +504,8 @@ $(document).ready(function(){
 	$('#backButton_42').click(function(){
 		$('#lifestyle-habits').hide();
 		$('#select-conditions').show();
+		$(".lifestyle-habits").prop('checked', false);
+		$('#lifestyle-habits-btn').text("NONE APPLY");
 	});
 
 	$(".lifestyle-habits").change(function(){
@@ -520,6 +530,8 @@ $(document).ready(function(){
 	$('#backButton_43').click(function(){
 		$('#both-effective-and-safe-dosages-of-medication-conditions').hide();
 		$('#lifestyle-habits').show();
+		$(".both-effective-and-safe-dosages-of-medication-conditions").prop('checked', false);
+		$('#both-effective-and-safe-dosages-of-medication-conditions-btn').text("NONE APPLY");
 	});
 
 	$(".both-effective-and-safe-dosages-of-medication-conditions").change(function(){
@@ -544,6 +556,8 @@ $(document).ready(function(){
 	$('#backButton_44').click(function(){
 		$('#symptoms-options').hide();
 		$('#both-effective-and-safe-dosages-of-medication-conditions').show();
+		$(".symptoms-options").prop('checked', false);
+		$('#symptoms-options-btn').text("NONE APPLY");
 	});
 
 	$(".symptoms-options").change(function(){
@@ -568,6 +582,8 @@ $(document).ready(function(){
 	$('#backButton_45').click(function(){
 		$('#symptoms-options-2').hide();
 		$('#symptoms-options').show();
+		$(".symptoms-options-2").prop('checked', false);
+		$('#symptoms-options-2-btn').text("NONE APPLY");
 	});
 
 	$(".symptoms-options-2").change(function(){
@@ -592,6 +608,8 @@ $(document).ready(function(){
 	$('#backButton_46').click(function(){
 		$('#conjunction-with-other-medication-info').hide();
 		$('#symptoms-options-2').show();
+		$(".conjunction-with-other-medication-info").prop('checked', false);
+		$('#conjunction-with-other-medication-info-btn').text("NONE APPLY");
 	});
 
 	$(".conjunction-with-other-medication-info").change(function(){
@@ -616,6 +634,7 @@ $(document).ready(function(){
 	$('#backButton_47').click(function(){
 		$('#conjunction-with-other-recreational-drugs-info').hide();
 		$('#conjunction-with-other-medication-info').show();
+		$("input[name='Death can result if ED meds are used in conjunction with recreational drugs']:checked").prop('checked', false);
 	});
 
 
@@ -647,12 +666,14 @@ $(document).ready(function(){
 			$('#conjunction-with-other-recreational-drugs-info').show();			
 		}
 		otherRecreationalDrugs = false;
+		$("input[name='Are you taking any other medicines?']:checked").prop('checked', false);
 	});
 
 	$('#backButton_49').click(function(){
 		$('#which-recreational-drugs-info').hide();
 		$('#conjunction-with-other-recreational-drugs-info').show();
 		$('#which-recreational-drugs-info-error').html("");
+		$('#Which_recreational_drugs_and_how_frequently_do_you_use_them_').val("");
 	});
 
 	$('.are-you-taking-any-other-medicines').click(function(){
@@ -673,12 +694,14 @@ $(document).ready(function(){
 			$('#are-you-taking-any-other-medicines').show();
 		}
 		whichMedication = false;
+		$("input[name='Do you have any allergies to food, dyes, medication, or anything else?']:checked").prop('checked', false);
 	});
 
 	$('#backButton_51').click(function(){
 		$('#which-medications-info').hide();
 		$('#are-you-taking-any-other-medicines').show();
 		$('#which-medications-info-error').html("");
+		$('#Which_medications__Please_list_dose__as_well').val("");
 	});
 
 	$('#which-medications-info-btn').click(function(){
@@ -715,13 +738,15 @@ $(document).ready(function(){
 			$('#allergies-info').show();
 		}
 		whichAllergies = false;
-		
+		$(".have-you-been-troubled-info").prop('checked', false);
+		$('#have-you-been-troubled-info-btn').text("NONE OF THE ABOVE");
 	});
 
 	$('#backButton_53').click(function(){
 		$('#allergic-details').hide();
 		$('#allergies-info').show();
 		$('#allergic-details-error').html("");
+		$('#What_are_you_allergic_to_').val("");
 	});
 
 	$('#allergic-details-btn').click(function(){
@@ -772,6 +797,7 @@ $(document).ready(function(){
 	$('#backButton_54').click(function(){
 		$('#how-often-have-you-been-troubled-info').hide();
 		$('#have-you-been-troubled-info').show();
+		$("input[name='How often have you been troubled?']:checked").prop('checked', false);
 	});
 
 	$('#backButton_55').click(function(){
@@ -782,6 +808,7 @@ $(document).ready(function(){
 			$('#have-you-been-troubled-info').show();
 		}
 		checkedTroubledInfo = false;
+		$("input[name='Is there anything else we should know?']:checked").prop('checked', false);
 	});
 
 	$('.how-often-have-you-been-troubled-info').click(function(){
@@ -804,6 +831,7 @@ $(document).ready(function(){
 		$('#is-there-anything-else-we-should-know-details').hide();
 		$('#is-there-anything-else-we-should-know-info').show();
 		$('#is-there-anything-else-we-should-know-details-error').html("");
+		$('#Is_there_anything_else_we_should_know_details__').val('');
 	});
 
 	$('#backButton_57').click(function(){
@@ -860,6 +888,7 @@ $(document).ready(function(){
 	$('#backButton_58').click(function(){
 		$('#other-pharmacy-details').hide();
 		$('#confirm-pharmacy').show();
+		$('#Please_enter_the_name_and_address_of_your_pharmacy_of_choice').val('');
 		selectDifferentPharmacy = false;
 		$('#other-pharmacy-details-error').html("");		
 	});
